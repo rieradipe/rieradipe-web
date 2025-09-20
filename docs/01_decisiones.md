@@ -40,3 +40,24 @@ de dedicarme profesionalmente al desarrollo y la ciberseguridad.
 -**`rieradipe-web`**
 Contiene el frontend y la documentación oficial del proyecto.
 Incluye: -`docs/`--> Decisiones, diseño visual, etc. -`content/`--> Planetas en MDX -`src/` --> Código React
+
+-**`rieradipe-api`**
+Contiene el backend y las migraciones de base de datos.
+Incluye:
+-Código en Spring Boot --> controladores, servicios, repositorios.
+-Migraciones con Flyway en `src/main/resources/db/migracion/`.
+-README técnico con instrucciones de arranque.
+-Repo privado hasta que supere el checklist de seguridad.
+**Justificación**: separar frontend y backend permite despliegue independientes; Vercel para Web/ Railway para la API, y mantiene el código organizado.
+
+### 3.5 Visibilad
+
+**`rieradipe-web`** --> **Público**
+Justificación: es la parte del porfolioque quiero mostrar al mundo(proyectos, planetas, sobre mí, carta de precios, contacto).
+Será accesible en GitHub y desplegado en Vercel.
+
+**`rieradipe-api`** --> **Privado**
+Justificación: contiene lógica sensible( seguridad, base de datos, autenticación) y no es necesario exponerlo públicamente.
+Se utilizará solo para consumo interno desde la web.
+
+> Esta decisión busca equilibro: máxima visibilidad en la parte de presentación (frontend), máxima seguridad en la parte de datos (backend).
