@@ -100,3 +100,69 @@ Se han definido las siguientes ramas base para organizar el trabajo:
 
 **Estratégia de merge recomendada:**
 -Preferencia por **Squash & merge** historial limpio: 1 commit por PR en main. -**Rebase** opcional si quiero conservar varios commits sin "merge commits".
+
+## 5. Estructura de la web
+
+### 5.1 Concepto narrativo
+
+La web es una travesia por el universo **Rieradipe**: cada **planeta** representa un proyecto o área de aprendizaje.
+Objetivo: explicar **qué hice, por qué y cómo**, con foco en decisiones técnicas, seguridad y resultados.
+
+Estados de los planetas: -**Aprendiendo** planetas pequeños en crecimiento. -**En construcción** proyecto en curso. -**Completado** caso de estudio cerrado.
+
+### 5.2 Páginas principales. Rutas y próposito
+
+-**`/`Home -- Mapa galáctico**
+Resumen, CTA a ver planetas y contacto. -**`/planetas` --Índice de proyectos**
+Grid con filtros (stack, dificultad, estado) -**`/planetas/:slug` Caso de estudio**
+Plantilla con: contexto, rol, arquítectura, decisiones, seguridad, retos, resultados, próximos pasos y links( demo/código). -**`/misiones` Ciberseguridad**
+Laboratorios (OWASAP top 10) + cómo mitigarlos + aplicaciones en mis proyectos. -**`sobre-mi`**
+Bio breve, CV (PDF), LinkedIn, GitHub, stack y "como trabajo". -**`contacto`**
+Formulario con consentimiento GDPR, guardado en BBDD y confirmación por email. -**`/carta`**
+Precios/tiempos orientativos (nota legal). -**`/panel`privado**
+Leads, consentimientos, testimonios(moderación).
+**(Opcional) `/equipo` Experiencia en equipo**
+Proyectos colaborativos + testimonios ("voces de la tripulación").
+
+### 5.3 Escalabilidad de contenidos.
+
+-**Fuente de verdad**:lista de planetas en contenido **MDX** (MVP) con opción de migración futura a **CMS/BD**
+-Autoindexado: el Home y `/planetas` **se generan** leyendo el índice de contenidos( sin tocar código).
+-Añadir un planeta = crear archivo MDX + portada -> aparece en Home, listado y detalle automáticamente.
+
+### 5.4 Modelo mínimo del planeta
+
+Campos del front-matter MDX:
+
+```yaml
+slug: pickmebylolas
+title: PicmeByLolas
+difficulty: 3
+stack: ["React", "Vite"]
+status: "V1"  #MVP | V1| WIP
+tipo: "proyecto" # proyecto | #proyecto | aprendizaje | colaborativo
+badge: "Completado" # Aprendiendo | En construcción | Completado
+cover: /imagenes/planets/pickme.png
+summary: "Mapa interactivo + carrito + SOS QR"
+links:
+    demo: "https://..."
+    repoFront: "https://github.com/rieradipe/..."
+    repoBack: "https://github.com/rieradipe/.."
+
+Cuerpo recomendado de MDX:
+1. Contexto y objetivo
+2. Rol y responsabilidades
+3. Arquitectura (diagrama simple)
+4. Decisiones clave (frontend, backend, seguridad)
+5. Seguridad (front vs back)
+6. Retos y cómo se resolvieron
+7. Resultados (métricas/lighthuse/accesibilidad)
+8. Próximos pasos
+9. Links (demo/repos/docs)
+```
+
+### 5.5 Accesibilidad y rendimiento (mínimos de página)
+
+-Accesibilidad AA, foco visible y navegación por teclado.
+-LCP <2.5s, imágenes optimizadas, fuentes con display: swap.
+-SEO básico por página(title, description, OG).
