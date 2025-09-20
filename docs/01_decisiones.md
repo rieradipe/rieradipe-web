@@ -34,3 +34,9 @@ de dedicarme profesionalmente al desarrollo y la ciberseguridad.
 -El idioma principal del proyecto será **español** tanto en el código como en la documentación y en la interfaz de la aplicación.
 -Justificación: refuerza mi identidad profesional y facilita que el porfolio sea accesible para el mercado laboral al que me dirijo actualmente.
 -Futuro: se prevé añadir **i18n** (internalización) para disponer también de versión en catalan, y mas adelante, inglés.
+
+### 3.4 Repositorios
+
+-**`rieradipe-web`**
+Contiene el frontend y la documentación oficial del proyecto.
+Incluye: -`docs/`--> Decisiones, diseño visual, etc. -`content/`--> Planetas en MDX -`src/` --> Código React
