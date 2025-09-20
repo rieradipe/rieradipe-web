@@ -61,3 +61,31 @@ Justificación: contiene lógica sensible( seguridad, base de datos, autenticaci
 Se utilizará solo para consumo interno desde la web.
 
 > Esta decisión busca equilibro: máxima visibilidad en la parte de presentación (frontend), máxima seguridad en la parte de datos (backend).
+
+## Gestión de ramas
+
+### 4.1 Rama principal
+
+-**`main`** será la rama estable y protegida.
+
+- No se trabajará directamente sobre ella: todos los cambios llegarán mediante Pull Request (PR)
+
+### 4.2 Ramas iniciales
+
+Se han definido las siguientes ramas base para organizar el trabajo: -`docs/decisiones`-> documentación inicial del proyecto.
+
+- `frontend/...`-> desarrollo del frontend.
+- `backend/...`-> desarrollo del backend y API.
+
+### 4.3 Flujo de trabajo
+
+- Cada funcionalidad o bloque de documentación se trabajará en ramas pequeñas (`feature/...`o `docs/...`).
+- Los cambios se revisarán y se integrarán mediante **PR hacia la rama correspondiente**.
+- Una vez cerrada una sección completa, esa rama base se mergeará a **`main`**.
+
+**Ejemplo**:
+
+1. Crear `docs/estructura`.
+2. Avanzar documentación.
+3. PR -> merge a `docs/decisiones`.
+4. Cuando la documentación inicial esté lista, merge final -> `main`.
