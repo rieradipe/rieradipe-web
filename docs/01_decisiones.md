@@ -68,20 +68,28 @@ Se utilizará solo para consumo interno desde la web.
 
 -**`main`** será la rama estable y protegida.
 
-- No se trabajará directamente sobre ella: todos los cambios llegarán mediante Pull Request (PR)
+- No se trabajará directamente sobre ella: todos los cambios llegarán mediante **Pull Request (PR)**
+- Protecciones activas:
+  - Requiere PR antes de hacer merge.
+  - Bloqueo de `force push` y de elimación.
+  - (aprobación NO OBLIGATORIA mientras trabajo sola).
 
 ### 4.2 Ramas iniciales
 
-Se han definido las siguientes ramas base para organizar el trabajo: -`docs/decisiones`-> documentación inicial del proyecto.
+Se han definido las siguientes ramas base para organizar el trabajo:
 
+- `docs/decisiones`-> documentación inicial del proyecto.
 - `frontend/...`-> desarrollo del frontend.
 - `backend/...`-> desarrollo del backend y API.
 
 ### 4.3 Flujo de trabajo
 
-- Cada funcionalidad o bloque de documentación se trabajará en ramas pequeñas (`feature/...`o `docs/...`).
-- Los cambios se revisarán y se integrarán mediante **PR hacia la rama correspondiente**.
-- Una vez cerrada una sección completa, esa rama base se mergeará a **`main`**.
+1. **Crear rama** desde `main`para un tema concreto.
+2. **Commits pequeños y frecuentes** Conventional Commits: `docs:`, `feat:`, `fix:`, `refactor:`.
+3. **Abrir PR** hacia la rama base, o directamente a `main`si es una tarea cerrada.
+4. **Revisión propia** Trabajo en solitario y **merge**.
+5. **Borrar la rama** cuando el PR se fusione.
+6. Repetir con la siguiente tarea.
 
 **Ejemplo**:
 
@@ -89,3 +97,6 @@ Se han definido las siguientes ramas base para organizar el trabajo: -`docs/deci
 2. Avanzar documentación.
 3. PR -> merge a `docs/decisiones`.
 4. Cuando la documentación inicial esté lista, merge final -> `main`.
+
+**Estratégia de merge recomendada:**
+-Preferencia por **Squash & merge** historial limpio: 1 commit por PR en main. -**Rebase** opcional si quiero conservar varios commits sin "merge commits".
