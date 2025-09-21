@@ -180,7 +180,7 @@ Por ello, se aplican los principios de la normativa europea (GDPR):
 
 Se crearán tablas específicas para cumplir con la trazabilidad y el consentimiento:
 
--**`leads`** -> información de contacto básica y necesidades del usuario. -**`consents`** -> registro del consentimiento dado por cada lead, con fecha/hora. -**`feedback`** -> comentarios u opiniones sobre proyectos/experiencias. -**`lead_events`** -> histórico de interacciones con un lead (ej. envíos de correo, actualizaciones).
+-**`contactos`** -> información de contacto básica y necesidades del usuario. -**`consentimientos`** -> registro del consentimiento dado por cada lead, con fecha/hora. -**`opiniones`** -> comentarios u opiniones sobre proyectos/experiencias. -**`historial de contactos`** -> histórico de interacciones con un lead (ej. envíos de correo, actualizaciones).
 
 ### 6.3 Política de privacidad
 
@@ -188,6 +188,7 @@ Se añadirá una página dedicada (`/privacidad`) con:
 -Finalidad del tratamiento de datos.
 -Tiempo de conservación.
 -Ejercicio de derechos GDPR.
+-Correo electrónico de referencia para consultas.
 -Contacto responsable (email de referencia).
 
 ### 6.4 Notas técnicas
