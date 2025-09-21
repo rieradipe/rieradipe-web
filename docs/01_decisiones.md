@@ -166,3 +166,32 @@ Cuerpo recomendado de MDX:
 -Accesibilidad AA, foco visible y navegación por teclado.
 -LCP <2.5s, imágenes optimizadas, fuentes con display: swap.
 -SEO básico por página(title, description, OG).
+
+## 6. Datos y privacidad (GDPR)
+
+### 6.1 Cumplimineto GDPR
+
+El proyecto recopilará y almacenará datos ersonales (email, teléfono, necesidades expresadas en el formulario).
+Por ello, se aplican los principios de la normativa europea (GDPR):
+
+-**Consentimiento explícito**: checkbox obligatorio en el formulario de contacto con enlace a la política de privacidad. -**Minimización**: se solicita únicamente la información imprescindible para iniciar el contacto. -**Transpariencia**: se informará al usuario sobre qué datos se guardan, con qué finalidad y durante cuánto tiempo. -**Derechos de los usuarios**: se explicaará como ejercer acceso, rectificación o elimanación. -**Seguridad**: comunicación en HTTPS y cifrado en base de datos(ej. almacenamiento cifrado de teléfono).
+
+### 6.2 Tablas de soporte
+
+Se crearán tablas específicas para cumplir con la trazabilidad y el consentimiento:
+
+-**`leads`** -> información de contacto básica y necesidades del usuario. -**`consents`** -> registro del consentimiento dado por cada lead, con fecha/hora. -**`feedback`** -> comentarios u opiniones sobre proyectos/experiencias. -**`lead_events`** -> histórico de interacciones con un lead (ej. envíos de correo, actualizaciones).
+
+### 6.3 Política de privacidad
+
+Se añadirá una página dedicada (`/privacidad`) con:
+-Finalidad del tratamiento de datos.
+-Tiempo de conservación.
+-Ejercicio de derechos GDPR.
+-Contacto responsable (email de referencia).
+
+### 6.4 Notas técnicas
+
+-Los consentiemientos se guardarán con **timestamp** y `lead_id`.
+-Los correos se enviarán usando un servicio externo de medidas de seguridad (ej. SMTP seguro)
+-La base de datos se desplegará en entorno seguro (con backup periódico).
