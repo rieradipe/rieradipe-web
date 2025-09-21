@@ -214,3 +214,14 @@ Se añadirá una página dedicada (`/privacidad`) con:
 ### 7.4 Pruebas y QA
 
 -**Pruebas manuales** -> validar cada funcionalidad clave en la web y la API. -**Pruebas end-to-end básicas** -> comprobar los flujos principales de la aplicación. -**Playwright** -> en aprendizaje (\*en cuarentena), previstos para automatizar pruebas más adelante. -**Ciberseguridad** -> se aplican medidas desde el diseño: validaciones en el frontend y seguridad reforzada en el backend.
+
+## Próximos pasos
+
+-**Completar la documentación inicial**
+Terminar este documento de decisiones y abrir el siguiente (02_estructura.md) para detallar la arquitectura de la web y la API. -**Configurar repositorios**
+Revisar protección de ramas, flujos de trabajo (PR) y plantillas de commits. -**Definir diseño visual**
+Paleta de colores, tipografías y omponentes base (botones, tarjetas, cabecera, pie de página). -**Desplegar entorno mínimo**
+Subir la web de prueba a Vercel y preparar el esqueleto de la API en Render/Railway. -**Seguridad desde el inicio**
+Añasir página de política de privacidad y preparar cifrado básico en la base de datos- -**Preparar contenidos iniciales**
+Cargar 3 planetas de ejemplo (proyecto) para probar el flujo de la web. -**QA básico**
+Planear pruebas manuales y anotar los primeros casos de uso para E2E.
