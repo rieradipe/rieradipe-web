@@ -196,3 +196,21 @@ Se añadirá una página dedicada (`/privacidad`) con:
 -Los consentiemientos se guardarán con **timestamp** y `lead_id`.
 -Los correos se enviarán usando un servicio externo de medidas de seguridad (ej. SMTP seguro)
 -La base de datos se desplegará en entorno seguro (con backup periódico).
+
+## 7. Tecnología
+
+### 7.1 Parte Web
+
+-**React + Vite** -> para construir la interfaz con componentes reutilizabes y rápidos. -**CSS modules** -> para estilos aislados por componentes, asegurando mantenibilidad. -**Contenido en MSX** -> planetas (proyectos) definidos como archivos de contenido que generan páginas dinámicas. -**Accesibilidad y SEO** -> como requisitos desde el diseño inicial.
+
+### 7.2 Parte API
+
+-**Spring Boot (Java)** -> para la lógica de negocio y servicios. -**PostgreSQL** -> como base de datos principal. -**Migraciones con Flyway** -> versionado de cambios en la base de datos. -**API REST** -> contrato claro para conectar la web y la API.
+
+### 7.3 Infraestructura
+
+-**GitHub** -> repositorios y control de versiones. -**Vercel** -> despliegue de la web. -**Render/Railway** -> despliegue de la API y la base de datos. -**Protecciones de rama** -> en GitHub para mantener orden y seguridad en el flujo de trabajo.
+
+### 7.4 Pruebas y QA
+
+-**Pruebas manuales** -> validar cada funcionalidad clave en la web y la API. -**Pruebas end-to-end básicas** -> comprobar los flujos principales de la aplicación. -**Playwright** -> en aprendizaje (\*en cuarentena), previstos para automatizar pruebas más adelante. -**Ciberseguridad** -> se aplican medidas desde el diseño: validaciones en el frontend y seguridad reforzada en el backend.
