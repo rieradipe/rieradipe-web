@@ -20,7 +20,7 @@ La estructura definida para la página de inicio incluye:
 - **Footer**: con iconos sociales (LinkedIn, GitHub, Twitter) y aviso legal (GDPR).
 
 ![Wireframe
-Home](./docs/img/WBajaRieradipe.png)
+Home](./img/WBajaRieradipe.png)
 
 ## Propuestas de Paleta de Colores
 
