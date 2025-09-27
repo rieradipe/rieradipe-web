@@ -1,0 +1,244 @@
+/* ====================
+RESET BÁSICO
+   ==================== */
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+/* ====================
+TOKENS DE DISEÑO
+   ==================== */
+:root {
+  /*tipografias*/
+  --font-title: "Poppins", system-ui, sans-serif;
+  --font-body: "Quicksand", system-ui, sans-serif;
+
+  /*Espaciado mobil first*/
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  /*Bordes y radios*/
+  --radius-xs: 6px;
+  --radius: 12pz;
+  --radius-xl: 20px;
+  --border-thim: 1px;
+  --border: 2px;
+
+  /*Sombras*/
+  --shadow-1: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-2: 0 8px 24px rgba(0, 0, 0, 0.16);
+  --shadow-3: 0 16px 40px rgba(0, 0, 0, 0.22);
+
+  /*Breakpoints*/
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+}
+
+/* ===================
+   TEMAS DE COLOR
+   =================== */
+/* tema cosmico */
+:root,
+html[sata-theme="cosmic"] {
+  --bg: #0d0d2b;
+  --fg: #e0e0e0;
+  --muted: #9ca3af;
+  --line: #2d2d4a;
+
+  --accent: #6c63ff; /*primario*/
+  --accent-2: #f50057; /*secundario*/
+  --accent-contrast: #0e0e1f;
+  --border-color: rgba(255, 255, 255, 0.18);
+}
+
+/*Tema minimal */
+html[data-theme="minimal"] {
+  --bg: #ffffff;
+  --fg: #212121;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+
+  --accent: #00796b;
+  --accent-2: #ff6f61;
+  --accent-contrast: #ffffff;
+
+  --border-color: #e5e7eb;
+}
+/* ====================
+    TIPOGRAFÍA BASE
+   ==================== */
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-title);
+  margin: 0 0 var(--space-3);
+  font-weight: 700;
+}
+p {
+  font-family: var(--font-body);
+  margin: 0 0 var(--space-3);
+  font-weight: 400;
+}
+/* ====================
+  ACCESIBILIDAD
+   ==================== */
+:where(a, button, [role="button"], input, textarea, select):focus-visible {
+  outline: var(--border) solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+/* ====================
+   UTILIDADES
+   ==================== */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+.section {
+  padding: var(--space-8) 0;
+}
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: var(--border-thin) solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+}
+/*Boton base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  border: var(--border-thin) solid transparent;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: none;
+}
+.btn:hover {
+  filter: brightness(1.05);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+/* Imagenes responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* ====================
+   RESPONSIVE
+   ==================== */
+@media (min-width: 768px) {
+  .section {
+    padding: var(--space-12) 0;
+  }
+}
+/*Reduce motion*/
+@media (prefers-reduce-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* =====================
+     HOME HERO (ejemplo placeholder)
+   ===================== */
+.homeHero {
+  padding: var(--space-8) 0;
+  display: grid;
+  gap: var(--space-6);
+}
+.homeHero__title {
+  font-size: clamp(28px, 6vw, 48px);
+}
+.homeHero__subtitle {
+  color: var(--muted);
+}
+
+.homeHero__media {
+  display: grid;
+  place-items: center;
+}
+@media (min-width: 1024px) {
+  .homeHero {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    min-height: calc(100dvh - 120px); /* header+footer aprox */
+  }
+  .homeHero__media {
+    background: radial-gradient(
+      ellipse at center,
+      rgbs(255, 255, 255, 0.06),
+      transparent 60%
+    );
+    border-radius: var(--radius-xl);
+    border: var(--border-thin) solid var(--border-color);
+    box-shadow: var(--shadow-2);
+    padding: var(--space-6);
+  }
+  /* ====================
+   GRID DE MUNDOS
+   ==================== */
+  .worldsGrid {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 1024px) {
+    .worldsGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .worldCard {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: var(--border-thin) solid var(--border-color);
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow-1);
+  }
+  /* ====================
+   HELPERS
+   ==================== */
+  .visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: react(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+    border: 0;
+    padding: 0;
+    margin: -1px;
+  }
+}
