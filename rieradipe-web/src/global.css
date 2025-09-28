@@ -73,7 +73,7 @@ html[sata-theme="cosmic"] {
   --border-color: rgba(255, 255, 255, 0.18);
 }
 
-/*Tema minimal */
+/*Tema elegante */
 html[data-theme="minimal"] {
   --bg: #ffffff;
   --fg: #212121;
