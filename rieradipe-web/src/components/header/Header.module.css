@@ -1,0 +1,119 @@
+:root {
+  --violet: #5e3a87;
+  --violet-900: #2c2e4a;
+  --line: #e5e7eb;
+}
+
+/* Header base */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: saturate(140%) blur(4px);
+}
+
+/* FULL-WIDTH en todas las vistas */
+.inner {
+  width: 100%;
+  margin: 0; /* <- antes: auto */
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo izq / nav dcha */
+  gap: 12px;
+}
+
+/* Marca */
+.brand {
+  display: inline-flex;
+  align-items: center; /* <- antes: width (typo) */
+  gap: 12px;
+}
+.logo {
+  height: 90px;
+  width: auto;
+  display: block;
+}
+
+/* Menú SIEMPRE visible */
+.navDesktop {
+  margin-left: auto;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  overflow-x: auto; /* en móvil, scroll si no cabe */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* oculta barra en Firefox */
+}
+.navDesktop::-webkit-scrollbar {
+  display: none;
+}
+
+.navDesktop a {
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 8px 14px;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.navDesktop a:hover,
+.navDesktop a:focus-visible {
+  border-color: var(--violet);
+  background: var(--violet);
+  color: #fff;
+}
+.navDesktop a[aria-current="page"] {
+  border-color: var(--violet);
+  background: var(--violet);
+  color: #fff;
+}
+
+/* CTA */
+.cta {
+  border: 1px solid var(--violet);
+}
+
+/* Mobile tweaks */
+@media (max-width: 767px) {
+  .inner {
+    padding: 10px 12px;
+  }
+  .logo {
+    height: 85px;
+  }
+  .navDesktop {
+    gap: 12px;
+  }
+}
+
+/* Desktop = mismo layout que mobile, solo un poco más de aire */
+@media (min-width: 1024px) {
+  .inner {
+    /* quita el max-width para NO centrar */
+    width: 100%;
+    margin: 0;
+    padding: 14px 24px; /* un pelín más de aire */
+  }
+
+  .logo {
+    height: 120px;
+  }
+
+  .navDesktop {
+    display: flex;
+    gap: 22px; /* separación entre items */
+    align-items: center;
+    margin-left: auto;
+    overflow: visible; /* sin scroll en desktop */
+  }
+
+  .navDesktop a {
+    font-size: 15px;
+    padding: 10px 16px; /* pill un poco mayor en desktop */
+  }
+}
