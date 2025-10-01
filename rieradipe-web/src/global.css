@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap");
+
 /* ====================
 RESET BÁSICO
    ==================== */
@@ -73,7 +75,7 @@ html[sata-theme="cosmic"] {
   --border-color: rgba(255, 255, 255, 0.18);
 }
 
-/*Tema minimal */
+/*Tema elegante */
 html[data-theme="minimal"] {
   --bg: #ffffff;
   --fg: #212121;
