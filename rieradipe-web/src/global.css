@@ -3,7 +3,9 @@
 /* ====================
 RESET BÁSICO
    ==================== */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 html,
@@ -15,13 +17,20 @@ body,
 }
 
 .app {
-  min-height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
 }
 
 main {
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 body {
   font-family: var(--font-body);
@@ -30,6 +39,17 @@ body {
   line-height: 1.5;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+img,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 /* ====================
 TOKENS DE DISEÑO
@@ -50,9 +70,9 @@ TOKENS DE DISEÑO
 
   /*Bordes y radios*/
   --radius-xs: 6px;
-  --radius: 12pz;
+  --radius: 12px;
   --radius-xl: 20px;
-  --border-thim: 1px;
+  --border-thin: 1px;
   --border: 2px;
 
   /*Sombras*/
@@ -71,8 +91,7 @@ TOKENS DE DISEÑO
    TEMAS DE COLOR
    =================== */
 /* tema cosmico */
-:root,
-html[sata-theme="cosmic"] {
+html[data-theme="cosmic"] {
   --bg: #0d0d2b;
   --fg: #e0e0e0;
   --muted: #9ca3af;
@@ -85,7 +104,7 @@ html[sata-theme="cosmic"] {
 }
 
 /*Tema elegante */
-html[data-theme="minimal"] {
+:html[data-theme="minimal"] {
   --bg: #ffffff;
   --fg: #212121;
   --muted: #6b7280;
@@ -96,6 +115,7 @@ html[data-theme="minimal"] {
   --accent-contrast: #ffffff;
 
   --border-color: #e5e7eb;
+  --fg-darkblue: #0d0d2b;
 }
 /* ====================
     TIPOGRAFÍA BASE
@@ -114,6 +134,20 @@ p {
   margin: 0 0 var(--space-3);
   font-weight: 400;
 }
+
+/* ====================
+   ENLACES
+   ==================== */
+a {
+  text-decoration: none;
+  color: inherit; /* mantiene el color del texto, no azul por defecto */
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--accent); /* opcional: al pasar el ratón se colorea */
+}
+
 /* ====================
   ACCESIBILIDAD
    ==================== */
@@ -146,7 +180,7 @@ p {
   align-items: center;
   gap: var(--space-2);
   padding: 10px 16px;
-  border-radius: var(--radius);
+  border-radius: 9999px;
   border: var(--border-thin) solid transparent;
   background: var(--accent);
   color: var(--accent-contrast);
@@ -160,6 +194,27 @@ p {
 .btn:active {
   transform: translateY(1px);
 }
+/* Variante contorno (para grids de mundos) */
+.btn--outline {
+  background: transparent;
+  color: var(--fg);
+  border-color: var(--line);
+  box-shadow: var(--shadow-1);
+}
+.btn--outline:hover {
+  background: rgba(0, 0, 0, 0.03);
+  box-shadow: var(--shadow-2);
+}
+
+/* (Opcional) Variante fantasma sobre fondos oscuros */
+.btn--ghost {
+  background: transparent;
+  color: var(--accent);
+  border-color: transparent;
+}
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
 /* Imagenes responsivas */
 img {
   max-width: 100%;
@@ -171,11 +226,11 @@ img {
    ==================== */
 @media (min-width: 768px) {
   .section {
-    padding: var(--space-12) 0;
+    padding: var(--space-10) 0;
   }
 }
 /*Reduce motion*/
-@media (prefers-reduce-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
     transition: none !important;
@@ -209,7 +264,7 @@ img {
   .homeHero__media {
     background: radial-gradient(
       ellipse at center,
-      rgbs(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.06),
       transparent 60%
     );
     border-radius: var(--radius-xl);
@@ -246,7 +301,7 @@ img {
     height: 1px;
     width: 1px;
     overflow: hidden;
-    clip: react(1px, 1px, 1px, 1px);
+    clip: rect(1px, 1px, 1px, 1px);
     white-space: nowrap;
     border: 0;
     padding: 0;
