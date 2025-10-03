@@ -3,7 +3,9 @@
 /* ====================
 RESET BÁSICO
    ==================== */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 html,
@@ -16,12 +18,15 @@ body,
 
 .app {
   min-height: 100vh;
+  min-height: 100dvh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
 }
 
 main {
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,6 +39,17 @@ body {
   line-height: 1.5;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+img,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 /* ====================
 TOKENS DE DISEÑO
@@ -210,7 +226,7 @@ img {
    ==================== */
 @media (min-width: 768px) {
   .section {
-    padding: var(--space-12) 0;
+    padding: var(--space-10) 0;
   }
 }
 /*Reduce motion*/
