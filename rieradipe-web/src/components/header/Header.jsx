@@ -23,26 +23,13 @@ export default function Header() {
         {/* Menú siempre visible */}
         <nav className={styles.navDesktop} aria-label="Navegación principal">
           <a
-            href="#proyectos"
-            onClick={() => handleNav("#proyectos")}
-            aria-current={active === "#proyectos" ? "page" : undefined}
+            href="#servicios"
+            onClick={() => handleNav("#servicios")}
+            aria-current={active === "#servicios" ? "page" : undefined}
           >
-            Proyectos
+            Servicios
           </a>
-          <a
-            href="#qa"
-            onClick={() => handleNav("#qa")}
-            aria-current={active === "#qa" ? "page" : undefined}
-          >
-            QA
-          </a>
-          <a
-            href="#ciber"
-            onClick={() => handleNav("#ciber")}
-            aria-current={active === "#ciber" ? "page" : undefined}
-          >
-            Ciberseguridad
-          </a>
+
           <a
             href="#contacto"
             onClick={() => handleNav("#contacto")}
