@@ -1,0 +1,64 @@
+.imageWrap {
+  width: 100%;
+}
+
+.bannerImg {
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-1);
+}
+
+.about {
+  text-align: center;
+  margin-top: var(--space-6);
+}
+.title {
+  font-family: var(--font-title);
+  color: var(--fg);
+  font-size: clamp(22px, 3vw, 32px);
+  letter-spacing: -0.01em;
+}
+.lead {
+  margin: var(--space-3) auto 0;
+  max-width: 760px;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.6vw, 18px);
+  line-height: 1.6;
+}
+
+.worlds {
+  margin-top: var(--space-6);
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr 1fr;
+}
+@media (min-width: 640px) {
+  .worlds {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Extiende .btn global con toques del componente */
+.worldBtn {
+  justify-content: center;
+  min-height: 44px;
+  text-align: center;
+}
+
+.emoji {
+  margin-right: var(--space-2);
+}
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.arrow {
+  margin-left: var(--space-2);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.worldBtn:hover .arrow {
+  opacity: 1;
+}

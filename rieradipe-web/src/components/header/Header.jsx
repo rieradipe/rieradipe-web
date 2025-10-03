@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styles from "./Header.module.css";
-import logoRieradipe from "../../img/logoRieradipe.svg";
 
 export default function Header() {
   const [active, setActive] = useState("#proyectos");
@@ -15,7 +14,7 @@ export default function Header() {
         <a href="/" className={styles.brand} aria-label="Inicio">
           <img
             className={styles.logo}
-            src={logoRieradipe}
+            src="/img/logoRieradipe.svg"
             alt="Rieradipe Logo"
           />
         </a>
