@@ -17,18 +17,18 @@
 /* FULL-WIDTH en todas las vistas */
 .inner {
   width: 100%;
-  margin: 0; /* <- antes: auto */
+  margin: 0;
   padding: 10px 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* logo izq / nav dcha */
+  justify-content: space-between;
   gap: 12px;
 }
 
 /* Marca */
 .brand {
   display: inline-flex;
-  align-items: center; /* <- antes: width (typo) */
+  align-items: center;
   gap: 12px;
 }
 .logo {
@@ -43,9 +43,9 @@
   display: flex;
   gap: 18px;
   align-items: center;
-  overflow-x: auto; /* en móvil, scroll si no cabe */
+  overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* oculta barra en Firefox */
+  scrollbar-width: none;
 }
 .navDesktop::-webkit-scrollbar {
   display: none;
@@ -91,13 +91,11 @@
   }
 }
 
-/* Desktop = mismo layout que mobile, solo un poco más de aire */
 @media (min-width: 1024px) {
   .inner {
-    /* quita el max-width para NO centrar */
     width: 100%;
     margin: 0;
-    padding: 14px 24px; /* un pelín más de aire */
+    padding: 14px 24px;
   }
 
   .logo {
@@ -106,14 +104,14 @@
 
   .navDesktop {
     display: flex;
-    gap: 22px; /* separación entre items */
+    gap: 22px;
     align-items: center;
     margin-left: auto;
-    overflow: visible; /* sin scroll en desktop */
+    overflow: visible;
   }
 
   .navDesktop a {
     font-size: 15px;
-    padding: 10px 16px; /* pill un poco mayor en desktop */
+    padding: 10px 16px;
   }
 }

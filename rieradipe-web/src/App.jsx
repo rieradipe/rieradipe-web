@@ -1,10 +1,11 @@
 import "./global.css";
-import Header from "./components/header/Header.jsx";
+
+import MainLayout from "./layouts/MainLayout.jsx";
 
 function App() {
   return (
     <>
-      <Header />
+      <MainLayout />
     </>
   );
 }
