@@ -68,13 +68,7 @@ export default function Main({
               className={`btn btn--outline ${styles.worldBtn}`}
               aria-label={`Ir a ${m.label}`}
             >
-              <span className={styles.emoji} aria-hidden>
-                🌌
-              </span>
               <span className={styles.label}>{m.label}</span>
-              <span className={styles.arrow} aria-hidden>
-                →
-              </span>
             </a>
           ))}
         </nav>
