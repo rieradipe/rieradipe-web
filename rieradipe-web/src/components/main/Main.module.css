@@ -49,28 +49,24 @@
 
 /* Extiende .btn global con toques del componente */
 .worldBtn {
+  background: url("/img/botones.svg") center/cover no-repeat;
+  color: #ffffff;
   justify-content: center;
   min-height: 44px;
   text-align: center;
 }
-
-.emoji {
-  margin-right: var(--space-2);
+.worldBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(0, 92, 255, 0.6);
+  text-shadow: 0 0 8px rgba(91, 95, 255, 0.7);
 }
+
 .label {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.arrow {
-  margin-left: var(--space-2);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
 
-.worldBtn:hover .arrow {
-  opacity: 1;
-}
 @media (max-width: 480px) {
   .imageWrap {
     width: 100%;
