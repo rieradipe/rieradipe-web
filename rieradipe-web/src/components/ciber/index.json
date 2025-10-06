@@ -1,0 +1,152 @@
+[
+  {
+    "mundo": "Autenticación y Control de Acceso",
+    "carpeta": "autenticacion",
+    "color": "from-blue-400 to-blue-600",
+    "labs": [
+      {
+        "id": "0x01",
+        "titulo": "Login sin defensas",
+        "archivo": "Autenticacion0x01.pdf",
+        "tags": ["A07", "A03"]
+      },
+      {
+        "id": "0x02",
+        "titulo": "MFA expuesto",
+        "archivo": "Autenticacion2.pdf",
+        "tags": ["A07"]
+      },
+      {
+        "id": "0x03",
+        "titulo": "Bypass Lockout",
+        "archivo": "Autenticacion3.pdf",
+        "tags": ["A07"]
+      },
+      {
+        "id": "0x04",
+        "titulo": "IDOR en cuentas admin",
+        "archivo": "Autenticacion4.pdf",
+        "tags": ["A01"]
+      },
+      {
+        "id": "0x05",
+        "titulo": "BFLA (Autorización rota)",
+        "archivo": "Autenticacion5.pdf",
+        "tags": ["A01", "A05"]
+      }
+    ]
+  },
+  {
+    "mundo": "Inyección SQL",
+    "carpeta": "sqlInjection",
+    "color": "from-red-400 to-red-600",
+    "labs": [
+      {
+        "id": "0x01",
+        "titulo": "SQLi básica",
+        "archivo": "SQLinjection1.pdf",
+        "tags": ["A03"]
+      },
+      {
+        "id": "0x02",
+        "titulo": "SQLi por cookie",
+        "archivo": "SQLinjection2.pdf",
+        "tags": ["A03"]
+      },
+      {
+        "id": "0x03",
+        "titulo": "UNION SELECT Challenge",
+        "archivo": "SQLinjection3.pdf",
+        "tags": ["A03"]
+      },
+      {
+        "id": "0x04",
+        "titulo": "Inyección de segunda orden",
+        "archivo": "SQLinjection4.pdf",
+        "tags": ["A03"]
+      }
+    ]
+  },
+  {
+    "mundo": "File Inclusion",
+    "carpeta": "fileInclusion",
+    "color": "from-yellow-400 to-yellow-600",
+    "labs": [
+      {
+        "id": "0x01",
+        "titulo": "LFI básico",
+        "archivo": "FileInclusion1.pdf",
+        "tags": ["A05"]
+      },
+      {
+        "id": "0x02",
+        "titulo": "php://filter",
+        "archivo": "FileInclusion2.pdf",
+        "tags": ["A05"]
+      },
+      {
+        "id": "0x03",
+        "titulo": "FetchRecipe exploit",
+        "archivo": "FileInclusion3.pdf",
+        "tags": ["A05"]
+      }
+    ]
+  },
+  {
+    "mundo": "File Upload inseguro",
+    "carpeta": "fileUpload",
+    "color": "from-orange-400 to-orange-600",
+    "labs": [
+      {
+        "id": "0x01",
+        "titulo": "Shell PHP simple",
+        "archivo": "fileupload.pdf",
+        "tags": ["A05"]
+      },
+      {
+        "id": "0x02",
+        "titulo": "Shell .php.jpg",
+        "archivo": "fileUpload2.pdf",
+        "tags": ["A05"]
+      }
+    ]
+  },
+  {
+    "mundo": "Cross-Site Scripting (XSS)",
+    "carpeta": "xss",
+    "color": "from-green-400 to-green-600",
+    "labs": [
+      {
+        "id": "0x01",
+        "titulo": "XSS Reflejado",
+        "archivo": "XSS1.pdf",
+        "tags": ["A03", "A07"]
+      },
+      {
+        "id": "0x02",
+        "titulo": "XSS Almacenado",
+        "archivo": "XSS2.pdf",
+        "tags": ["A03", "A07"]
+      }
+    ]
+  },
+  {
+    "mundo": "Reflexiones y problemas",
+    "carpeta": "",
+    "color": "from-gray-400 to-gray-600",
+    "labs": [
+      {
+        "id": "extra1",
+        "titulo": "Explicaciones Ciber",
+        "archivo": "ExplicacionesCiber1.pdf",
+        "tags": ["Reflexión"]
+      },
+      {
+        "id": "extra2",
+        "titulo": "Problemas Docker + Labs",
+        "archivo": "problemaDocker+Labs.pdf",
+        "tags": ["Infraestructura"]
+      }
+    ]
+  }
+]

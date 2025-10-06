@@ -104,7 +104,7 @@ html[data-theme="cosmic"] {
 }
 
 /*Tema elegante */
-:html[data-theme="minimal"] {
+html[data-theme="minimal"] {
   --bg: #ffffff;
   --fg: #212121;
   --muted: #6b7280;
@@ -113,6 +113,7 @@ html[data-theme="cosmic"] {
   --accent: #00796b;
   --accent-2: #ff6f61;
   --accent-contrast: #ffffff;
+  --accent-green-light: #009688;
 
   --border-color: #e5e7eb;
   --fg-darkblue: #0d0d2b;
@@ -143,9 +144,9 @@ a {
   color: inherit; /* mantiene el color del texto, no azul por defecto */
 }
 
-a:hover {
+a:hover:not(.btn) {
+  color: var(--accent);
   text-decoration: none;
-  color: var(--accent); /* opcional: al pasar el ratón se colorea */
 }
 
 /* ====================
@@ -307,4 +308,24 @@ img {
     padding: 0;
     margin: -1px;
   }
+}
+/* No cambies el color de los <a> que son botones */
+a:hover:not(.btn) {
+  color: var(--accent);
+}
+
+/* Botón sólido: texto siempre legible (blanco) */
+a.btn,
+a.btn:hover,
+a.btn:focus,
+a.btn:active {
+  color: var(--accent-contrast) !important;
+}
+
+/* Por si en algún sitio usamos <button class="btn"> */
+button.btn,
+button.btn:hover,
+button.btn:focus,
+button.btn:active {
+  color: var(--accent-contrast) !important;
 }
