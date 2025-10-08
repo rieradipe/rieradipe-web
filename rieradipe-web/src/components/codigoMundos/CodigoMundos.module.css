@@ -1,0 +1,270 @@
+.section {
+  width: 100%;
+  background: #ffffff;
+  color: var(--text-primary, #1f2937);
+  padding: 3rem 0 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titles {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #000;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: 0.2px;
+}
+
+/* Tarjetas base (para dentro del carrusel) */
+.card {
+  background: #ffffff;
+  border: 2px solid #c084fc; /* 💜 Borde lila */
+  border-radius: 20px;
+  padding: 2rem;
+  width: 300px;
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 16px rgba(192, 132, 252, 0.25);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(192, 132, 252, 0.45);
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.cardDesc {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* Botón blanco con halo lila */
+.button {
+  align-self: flex-start;
+  background: #ffffff;
+  color: #000000;
+  font-weight: 700;
+  padding: 0.8rem 1.6rem;
+  border-radius: 2rem;
+  border: 2px solid #c084fc;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.25),
+    inset 0 0 0 0 rgba(192, 132, 252, 0);
+}
+
+.button:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08), 0 0 24px rgba(192, 132, 252, 0.45),
+    0 0 60px rgba(192, 132, 252, 0.2);
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, #ffffff 0%, #fbf7ff 100%);
+}
+
+.button:active {
+  box-shadow: 0 0 28px rgba(192, 132, 252, 0.55),
+    inset 0 0 10px rgba(192, 132, 252, 0.25);
+  transform: scale(0.98);
+}
+
+/* ---- HERO (si lo usas en la vista) ---- */
+.worldSection {
+  width: 100%;
+  padding: 4rem 0 2rem;
+  background: #ffffff;
+  color: #000;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 0 1.5rem;
+}
+
+.heroText {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heroTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 0.75rem;
+}
+
+.heroDesc {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #4b5563;
+  max-width: 56ch;
+}
+
+.heroImg {
+  width: 100%;
+  max-width: 440px;
+  margin-left: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(192, 132, 252, 0.25);
+  border: 2px solid #c084fc;
+}
+
+/* ---- Tarjetas hero opcionales ---- */
+.heroCards {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 2rem auto 3rem;
+  max-width: 1100px;
+}
+
+.heroCard {
+  flex: 1;
+  min-width: 280px;
+  background: #fff;
+  border: 2px solid #c084fc;
+  border-radius: 20px;
+  padding: 1.8rem;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(192, 132, 252, 0.25);
+  transition: all 0.25s ease;
+}
+
+.heroCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(192, 132, 252, 0.45);
+}
+
+.heroCardTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.75rem;
+}
+
+.heroCardText {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   🎠 CARRUSEL (Embla) — 2 por vista + flechas DEBAJO
+   ========================================================= */
+
+/* Wrapper vertical para poner las flechas debajo */
+.carouselWrap {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra carrusel y flechas */
+}
+
+.embla {
+  overflow: hidden;
+  width: 100%;
+}
+
+.emblaContainer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.emblaSlide {
+  flex: 0 0 100%;
+  display: flex; /* ← CORREGIDO (antes 'felx') */
+  justify-content: center;
+}
+
+/* 2 tarjetas por vista (tablet y desktop) */
+@media (min-width: 640px) {
+  .emblaSlide {
+    flex-basis: calc(50% - 0.5rem);
+  }
+}
+
+/* Navegación abajo y centrada */
+.navBtns {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.navBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid #c084fc;
+  background: #fff;
+  color: #000;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.navBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(192, 132, 252, 0.45);
+}
+
+.navBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* ------------------ Responsive ------------------ */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .heroText {
+    align-items: center;
+  }
+  .heroImg {
+    margin: 1rem auto 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .titles {
+    font-size: 2rem;
+  }
+  .card {
+    width: 92%;
+  }
+}

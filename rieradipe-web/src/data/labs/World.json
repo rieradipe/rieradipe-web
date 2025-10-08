@@ -1,0 +1,156 @@
+[
+  {
+    "id": "mariefactie",
+    "type": "Frontend",
+    "title": "MarieFactie",
+    "repoUrl": "https://github.com/edmimi/Marie_Factie",
+    "status": "wip",
+    "tags": ["UI", "Branding", "Componentes"],
+    "tech": ["React 18", "Vite", "module.css", "Variables globales"],
+    "card": {
+      "pitch": "UI limpia y branding AlbaFactie con componentes reutilizables.",
+      "learning": "Arquitectura por componentes y estilos locales (module.css)."
+    },
+    "modal": {
+      "description": "App interactiva que simula a una científica excéntrica generando datos aleatorios con gestión de favoritos e interacción juguetona.",
+      "highlights": [
+        "Gestión de favoritos (hasta 5) y estado de interacción",
+        "Micro-comportamientos (estrés/respuestas juguetonas)",
+        "Componentes con estilos aislados mediante CSS Modules"
+      ],
+      "features": ["Generación de datos", "Favoritos", "Interacciones"]
+    }
+  },
+  {
+    "id": "sakuratorat",
+    "type": "Frontend",
+    "title": "Sakuratorat",
+    "repoUrl": "https://github.com/Carocitta/SakuraTarot",
+    "status": "prod",
+    "tags": ["UX", "Interactividad", "Visual"],
+    "tech": ["React", "Vite", "JavaScript", "Axios"],
+    "card": {
+      "pitch": "Generador visual (pasado/presente/futuro) estilo tarot.",
+      "learning": "Manejo de estado y eventos; flujo UX guiado en 3 pasos."
+    },
+    "modal": {
+      "description": "El usuario elige cartas de pasado, presente y futuro en una experiencia dinámica y accesible.",
+      "highlights": [
+        "UI en React con estados controlados",
+        "Datos/mock con json-server para desarrollo",
+        "Arquitectura simple y rápida con Vite"
+      ],
+      "features": ["Selección de cartas", "Estado guiado", "Mock API local"]
+    }
+  },
+  {
+    "id": "sabiduria-infinita",
+    "type": "Backend",
+    "title": "Sabiduría Infinita",
+    "repoUrl": "https://github.com/PaolaAMoralesP/Sabiduria-infinita",
+    "status": "prod",
+    "tags": ["API", "Libros", "CRUD"],
+    "tech": ["Java", "Maven", "PostgreSQL", "Dotenv"],
+    "card": {
+      "pitch": "API Java para gestionar un catálogo de libros (CRUD completo).",
+      "learning": "Separación MVC: controller, DAO, view; conexión JDBC."
+    },
+    "modal": {
+      "description": "Aplicación Java para crear, ver, buscar, actualizar y eliminar libros con PostgreSQL.",
+      "highlights": [
+        "Estructura MVC clara (controller/model/DAO/view)",
+        "Gestión de configuración con dotenv",
+        "Tests básicos con Maven"
+      ],
+      "features": ["Create/Read/Update/Delete", "Búsqueda", "Menú interactivo"]
+    }
+  },
+  {
+    "id": "techsafespace-backend",
+    "type": "Backend",
+    "title": "TechSafeSpace (Backend)",
+    "repoUrl": "https://github.com/codekraftians/backend",
+    "status": "dev",
+    "tags": ["Spring Boot", "Usuarios", "Validaciones"],
+    "tech": [
+      "Java 21",
+      "Spring Boot 3",
+      "JPA/Hibernate",
+      "PostgreSQL",
+      "Maven"
+    ],
+    "card": {
+      "pitch": "API Spring Boot con creación de usuarios y validaciones.",
+      "learning": "Capas controller/service/repository y validaciones con Bean Validation."
+    },
+    "modal": {
+      "description": "Backend para comunidad tech de mujeres y disidencias, con endpoints REST y persistencia en PostgreSQL.",
+      "highlights": [
+        "Endpoint POST /api/v1/users (201 Created)",
+        "Validaciones: @Email, @NotBlank, @Pattern",
+        "Arquitectura en capas y pruebas con Postman/pgAdmin"
+      ],
+      "features": ["Registro de usuario", "Persistencia", "Validación servidor"]
+    }
+  },
+  {
+    "id": "pickmebylolas",
+    "type": "Fullstack",
+    "title": "PickMe By Lolas",
+    "repoUrl": "https://github.com/rieradipe/picmebylolas",
+    "status": "dev",
+    "tags": ["Mapa", "Seguridad", "Pedidos"],
+    "tech": ["Spring Boot 3", "JWT", "AES-GCM", "PostgreSQL", "Swagger"],
+    "card": {
+      "pitch": "App social con mapa interactivo y entregas simuladas por dron.",
+      "learning": "JWT, cifrado AES-GCM, migraciones Flyway y docs OpenAPI."
+    },
+    "modal": {
+      "description": "Plataforma para localizar zonas seguras, pedir menús y solicitar ayuda; foco en seguridad y buenas prácticas.",
+      "highlights": [
+        "Arquitectura MVC sobre Spring Boot",
+        "JWT para auth y AES-GCM para datos sensibles (IBAN)",
+        "Flyway para versionado, Swagger UI, Testcontainers"
+      ],
+      "features": [
+        "Auth/register/login",
+        "Categorías/Productos/Órdenes",
+        "Landing zones (mapa)"
+      ]
+    }
+  },
+  {
+    "id": "urdimbre-frontend",
+    "type": "Fullstack",
+    "title": "Urdimbre (Frontend)",
+    "repoUrl": "https://github.com/miskybox/Urdimbre_Frontend",
+    "status": "dev",
+    "tags": ["Roles", "Rutas protegidas", "Context"],
+    "tech": [
+      "React 18",
+      "Vite",
+      "React Router v6",
+      "Context API",
+      "Axios",
+      "CSS Modules"
+    ],
+    "card": {
+      "pitch": "Interfaz con login, dashboard y panel admin (rutas protegidas).",
+      "learning": "Estado global con Context y diseño modular con CSS Modules."
+    },
+    "modal": {
+      "description": "Frontend oficial integrado con la API de Urdimbre: registro/login, eventos, perfil y administración por roles.",
+      "highlights": [
+        "Context API para estado global",
+        "Rutas protegidas con React Router",
+        "Axios + servicios; tests con RTL/Jest"
+      ],
+      "features": [
+        "Auth y perfil",
+        "Eventos",
+        "Panel admin",
+        "JSDoc en componentes"
+      ]
+    }
+  }
+]
