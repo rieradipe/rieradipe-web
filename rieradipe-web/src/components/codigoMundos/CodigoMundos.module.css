@@ -289,3 +289,29 @@
     font-size: 0.95rem;
   }
 }
+
+.emblaContainer {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.emblaSlide:first-child {
+  margin-left: 8px;
+}
+
+.emblaSlide:last-child {
+  margin-right: 8px;
+}
+
+@media (min-width: 1024px) {
+  .emblaContainer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .emblaSlide:first-child {
+    margin-left: 12px;
+  }
+  .emblaSlide:last-child {
+    margin-right: 12px;
+  }
+}

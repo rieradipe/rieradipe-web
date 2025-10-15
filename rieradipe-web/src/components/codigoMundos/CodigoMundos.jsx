@@ -20,6 +20,7 @@ export default function CodigoMundo() {
     containScroll: "trimSnaps",
     slidesToScroll: 1,
   });
+
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
 
@@ -38,59 +39,70 @@ export default function CodigoMundo() {
 
   return (
     <section className={styles.section} aria-labelledby="codigo-title">
-      <div className={styles.container}></div>
-      <div className={styles.embla} ref={emblaRef}>
-        <div className={styles.emblaContainer}>
-          {items.map((p) => (
-            <div className={styles.emblaSlide} key={p.id}>
-              <article className={styles.card}>
-                <div className={styles.cardTop}>
-                  <span
-                    className={`${styles.badge} ${
-                      p.type === "Frontend"
-                        ? styles.badgeFront
-                        : p.type === "Backend"
-                        ? styles.badgeBack
-                        : styles.badgeFull
-                    }`}
-                  >
-                    {typeLabel(p.type)}
-                  </span>
+      <div className={styles.container}>
+        <h2 id="codigo-title" className={styles.titles}>
+          Los mundos del código
+        </h2>
+
+        {/* wrapper vertical del carrusel + flechas */}
+        <div className={styles.carouselWrap}>
+          <div className={styles.embla} ref={emblaRef}>
+            <div className={styles.emblaContainer}>
+              {items.map((p) => (
+                <div className={styles.emblaSlide} key={p.id}>
+                  <article className={styles.card}>
+                    <div className={styles.cardTop}>
+                      <span
+                        className={`${styles.badge} ${
+                          p.type === "Frontend"
+                            ? styles.badgeFront
+                            : p.type === "Backend"
+                            ? styles.badgeBack
+                            : styles.badgeFull
+                        }`}
+                      >
+                        {typeLabel(p.type)}
+                      </span>
+                    </div>
+
+                    <div className={styles.cardContent}>
+                      <h4 className={styles.cardTitle}>{p.title}</h4>
+                      <p className={styles.cardDesc}>{p.card?.pitch ?? ""}</p>
+                    </div>
+
+                    <a
+                      href={p.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.button}
+                    >
+                      Ver en GitHub
+                    </a>
+                  </article>
                 </div>
-
-                <h4 className={styles.cardTitle}>{p.title}</h4>
-                <p className={styles.cardDesc}>{p.card?.pitch ?? ""}</p>
-
-                <a
-                  href={p.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.button}
-                >
-                  Ver en GitHub
-                </a>
-              </article>
+              ))}
             </div>
-          ))}
+          </div>
+
+          <div className={styles.navBtns}>
+            <button
+              className={styles.navBtn}
+              onClick={() => emblaApi && emblaApi.scrollPrev()}
+              disabled={!canPrev}
+              aria-label="Anterior"
+            >
+              ‹
+            </button>
+            <button
+              className={styles.navBtn}
+              onClick={() => emblaApi && emblaApi.scrollNext()}
+              disabled={!canNext}
+              aria-label="Siguiente"
+            >
+              ›
+            </button>
+          </div>
         </div>
-      </div>
-      <div className={styles.navBtns}>
-        <button
-          className={styles.navBtn}
-          onClick={() => emblaApi && emblaApi.scrollPrev()}
-          disabled={!canPrev}
-          aria-label="Anterior"
-        >
-          ‹
-        </button>
-        <button
-          className={styles.navBtn}
-          onClick={() => emblaApi && emblaApi.scrollNext()}
-          disabled={!canNext}
-          aria-label="Siguiente"
-        >
-          ›
-        </button>
       </div>
     </section>
   );
