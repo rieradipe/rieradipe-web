@@ -8,7 +8,7 @@ export default function Main({
   const mundos = [
     { key: "ciber", label: "Ciberseguridad", href: "/ciber" },
     { key: "codigo", label: "Código", href: "/codigo" },
-    { key: "qa", label: "QA", href: "/qa" },
+
     { key: "optimizacion", label: "Optimización Web", href: "/optimizacion" },
   ];
 

@@ -10,8 +10,8 @@ function App() {
   }, []);
   return (
     <MainLayout>
-      {/*<Main />*/}
-      <Ciber />
+      <Main />
+      {/*<Ciber />*/}
     </MainLayout>
   );
 }
