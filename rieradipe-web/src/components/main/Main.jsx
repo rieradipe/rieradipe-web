@@ -8,7 +8,7 @@ export default function Main({
   const mundos = [
     { key: "ciber", label: "Ciberseguridad", href: "/ciber" },
     { key: "codigo", label: "Código", href: "/codigo" },
-    { key: "qa", label: "QA", href: "/qa" },
+
     { key: "optimizacion", label: "Optimización Web", href: "/optimizacion" },
   ];
 
@@ -30,31 +30,37 @@ export default function Main({
         </div>
 
         {/* Texto sobre mí */}
+        {/* Texto sobre mí */}
         <div className={styles.about}>
           <h1 className={styles.title}>Sobre mí</h1>
+
           <p>
-            Soy <strong>Alba</strong>, apasionada por la tecnología con
-            propósito. En esta web me acompaña <strong>AlbaFactie</strong>, mi
-            alter ego digital y presentadora, que te guiará por los distintos
-            mundos de mi universo profesional.
+            Soy <strong>Alba</strong>, desarrolladora web con pasión por la
+            tecnología que mejora la vida de las personas. En esta web me
+            acompaña <strong>AlbaFactie</strong>, mi alter ego digital y guía
+            curiosa, que te presentará los distintos mundos de mi universo
+            profesional.
           </p>
+
           <p>
-            Creo en un <strong>código con visión y con valores</strong>:
-            accesible, inclusivo y feminista. Para mí, programar no es solo
-            escribir líneas de código, es crear impacto positivo y abrir caminos
-            a todas las personas.
+            Creo en un <strong>código con propósito</strong>: accesible,
+            inclusivo y con impacto real. Para mí, programar no consiste solo en
+            escribir líneas de código, sino en crear soluciones que comuniquen,
+            conecten y abran caminos a todas las personas.
           </p>
+
           <p>
-            He recorrido un camino de aprendizaje intenso: certificados de
-            profesionalidad en desarrollo web, un bootcamp fullstack &
-            ciberseguridad, y una fuerte motivación por seguir creciendo día a
-            día.
+            Mi recorrido incluye certificados de profesionalidad en desarrollo
+            web, un bootcamp fullstack y formación en ciberseguridad. Cada paso
+            ha reforzado mi compromiso con un desarrollo ético, colaborativo y
+            en constante evolución.
           </p>
+
           <p>
-            Esta web es el reflejo de esa mezcla de valores y técnica:{" "}
-            <strong>desarrollo pensado para las personas</strong>, con la
+            Esta web refleja esa mezcla de técnica y valores:
+            <strong> desarrollo centrado en las personas</strong>, con la
             convicción de que la tecnología puede{" "}
-            <strong>transformar y cuidar</strong>.
+            <strong>transformar, inspirar y cuidar</strong>.
           </p>
         </div>
 

@@ -13,9 +13,8 @@ function App() {
   }, []);
   return (
     <MainLayout>
-      {/*<Main />*/}
+      <Main />
       {/*<Ciber />*/}
-      <CodigoMundoComp />
     </MainLayout>
   );
 }
