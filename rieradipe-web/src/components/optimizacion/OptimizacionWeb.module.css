@@ -1,0 +1,182 @@
+:root {
+  --color-optim: #00e5ff;
+  --color-optim-light: rgba(0, 229, 255, 0.25);
+  --color-text: #1f2937;
+  --radius: 20px;
+  --shadow-soft: 0 4px 20px rgba(0, 229, 255, 0.25);
+  --shadow-strong: 0 6px 28px rgba(0, 229, 255, 0.45);
+}
+.section {
+  width: 100%;
+  background: linear-gradient(180deg, #ffffff 0%, #f5fbff 100%);
+  color: var(--color-text);
+  padding: 4rem 2rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 2rem;
+
+  margin: 0 auto;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.desc {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #4b5563;
+  max-width: 56ch;
+}
+
+.imageWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  border: 2px solid #00bfff;
+  box-shadow: 0 10px 30px rgba(0, 191, 255, 0.25);
+}
+
+.title {
+  font-size: 1.1rem;
+  line-height: 1.65rem;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  width: 100%;
+  margin: 3rem 0;
+}
+
+.card {
+  background: #ffffff;
+  border: 2px solid var(--color-optim);
+  border-radius: var(--radius);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.badge {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--color-optim);
+  background: rgba(0, 229, 255, 0.08);
+  border-radius: 9999px;
+  padding: 0.3rem 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.3px;
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--color-text);
+}
+
+.list li {
+  position: relative;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.ctaBox {
+  text-align: center;
+  margin-top: 3rem;
+  background: linear-gradient(145deg, #e0fbff 0%, #ffffff 100%);
+  border: 2px solid var(--color-optim);
+  border-radius: var(--radius);
+  padding: 2rem 2.5rem;
+  box-shadow: var(--shadow-soft);
+  max-width: 900px;
+}
+.ctaText {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.button {
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  border: 2px solid var(--color-optim);
+  border-radius: 2rem;
+  padding: 0.8rem 1.8rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 14px var(--color-optim-light);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .lead {
+    font-size: 1.05rem;
+  }
+  .ctaText {
+    font-size: 1.05rem;
+  }
+}
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .text {
+    align-items: center;
+  }
+  .image {
+    margin-top: 1.5rem;
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.5rem;
+  }
+  .ctaBox {
+    padding: 1.5rem;
+  }
+}

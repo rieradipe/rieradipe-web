@@ -6,15 +6,17 @@ import Ciber from "./components/ciber/Ciber.jsx";
 
 import { useEffect } from "react";
 import CodigoMundoComp from "./components/codigoMundos/CodigoMundosComp.jsx";
-
+import OptimizacionWeb from "./components/optimizacion/OptimizacionWeb.jsx";
 function App() {
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", "minimal");
   }, []);
   return (
     <MainLayout>
-      <Main />
+      {/*<Main />*/}
       {/*<Ciber />*/}
+      {/* <CodigoMundoComp /> */}
+      <OptimizacionWeb />
     </MainLayout>
   );
 }
