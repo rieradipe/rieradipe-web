@@ -116,23 +116,22 @@
 .grid {
   display: grid;
   gap: var(--space-4);
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-
   margin: 0 var(--space-4);
+  grid-template-columns: 1fr;
 }
 
 .labCard {
   padding: var(--space-6);
   border-radius: var(--radius);
-  background: rgba(0, 0, 0, 0.03);
+  background: #ffffff;
   border: var(--border-thin) solid var(--border-color);
-  box-shadow: var(--shadow-1);
-  transition: 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25 ease;
   color: var(--fg);
 }
 .labCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-2);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 255, 174, 0.25), 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .labCard h3 {
@@ -251,4 +250,17 @@
 .pdfBtn * {
   color: var(--fg) !important;
   fill: var(--fg) !important;
+}
+/*Tablet dos columnas */
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 columnas */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

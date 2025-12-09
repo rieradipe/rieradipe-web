@@ -1,16 +1,17 @@
 import React, { useCallback, useMemo, useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import projectData from "../../data/labs/World.json";
-import styles from "../codigoMundos/CodigoMundos.module.css";
+import styles from "./CodigoMundos.module.css";
 
 const typeLabel = (t) =>
   t === "Frontend" ? "Frontend" : t === "Backend" ? "Backend" : "Fullstack";
 
-export default function CodigoMundo() {
+export default function CodigoMundos() {
   const items = useMemo(() => {
     const front = projectData.filter((p) => p.type === "Frontend");
     const back = projectData.filter((p) => p.type === "Backend");
     const full = projectData.filter((p) => p.type === "Fullstack");
+
     return [...front, ...back, ...full];
   }, []);
 
@@ -38,72 +39,59 @@ export default function CodigoMundo() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className={styles.section} aria-labelledby="codigo-title">
-      <div className={styles.container}>
-        <h2 id="codigo-title" className={styles.titles}>
-          Los mundos del código
-        </h2>
-
-        {/* wrapper vertical del carrusel + flechas */}
-        <div className={styles.carouselWrap}>
-          <div className={styles.embla} ref={emblaRef}>
-            <div className={styles.emblaContainer}>
-              {items.map((p) => (
-                <div className={styles.emblaSlide} key={p.id}>
-                  <article className={styles.card}>
-                    <div className={styles.cardTop}>
-                      <span
-                        className={`${styles.badge} ${
-                          p.type === "Frontend"
-                            ? styles.badgeFront
-                            : p.type === "Backend"
-                            ? styles.badgeBack
-                            : styles.badgeFull
-                        }`}
-                      >
-                        {typeLabel(p.type)}
-                      </span>
-                    </div>
-
-                    <div className={styles.cardContent}>
-                      <h4 className={styles.cardTitle}>{p.title}</h4>
-                      <p className={styles.cardDesc}>{p.card?.pitch ?? ""}</p>
-                    </div>
-
-                    <a
-                      href={p.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.button}
-                    >
-                      Ver en GitHub
-                    </a>
-                  </article>
+    <div className={styles.carouselWrap}>
+      <div className={styles.embla} ref={emblaRef}>
+        <div className={styles.emblaContainer}>
+          {items.map((p) => (
+            <div className={styles.emblaSlide} key={p.id}>
+              <article className={styles.card}>
+                <div className={styles.cardTop}>
+                  <span
+                    className={`${styles.badge} ${
+                      p.type === "Frontend"
+                        ? styles.badgeFront
+                        : p.type === "Backend"
+                        ? styles.badgeBack
+                        : styles.badgeFull
+                    }`}
+                  >
+                    {typeLabel(p.type)}
+                  </span>
                 </div>
-              ))}
+                <div className={styles.cardContent}>
+                  <h4 className={styles.cardTitle}>{p.title}</h4>
+                  <p className={styles.cardDesc}>{p.card?.pitch ?? ""}</p>
+                </div>
+                <a
+                  href={p.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.button}
+                >
+                  Ver en GitHub
+                </a>
+              </article>
             </div>
-          </div>
-
-          <div className={styles.navBtns}>
-            <button
-              className={styles.navBtn}
-              onClick={() => emblaApi && emblaApi.scrollPrev()}
-              disabled={!canPrev}
-              aria-label="Anterior"
-            >
-              ‹
-            </button>
-            <button
-              className={styles.navBtn}
-              onClick={() => emblaApi && emblaApi.scrollNext()}
-              disabled={!canNext}
-              aria-label="Siguiente"
-            >
-              ›
-            </button>
-          </div>
+          ))}
         </div>
       </div>
-    </section>
+
+      <div className={styles.navBtns}>
+        <button
+          className={styles.navBtn}
+          onClick={() => emblaApi && emblaApi.scrollPrev()}
+          disabled={!canPrev}
+        >
+          ‹
+        </button>
+        <button
+          className={styles.navBtn}
+          onClick={() => emblaApi && emblaApi.scrollNext()}
+          disabled={!canNext}
+        >
+          ›
+        </button>
+      </div>
+    </div>
   );
 }

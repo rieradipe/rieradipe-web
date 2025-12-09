@@ -1,42 +1,42 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
 export default function Header() {
-  const [active, setActive] = useState("#proyectos");
+  const [active, setActive] = useState("/");
 
-  const handleNav = (hash) => {
-    setActive(hash);
+  const handleNav = (path) => {
+    setActive(path);
   };
 
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <a href="/" className={styles.brand} aria-label="Inicio">
+        <Link to="/" className={styles.brand}>
           <img
             className={styles.logo}
             src="/img/logoRieradipe.svg"
             alt="Rieradipe Logo"
           />
-        </a>
+        </Link>
 
-        {/* Menú siempre visible */}
-        <nav className={styles.navDesktop} aria-label="Navegación principal">
-          <a
-            href="#servicios"
-            onClick={() => handleNav("#servicios")}
-            aria-current={active === "#servicios" ? "page" : undefined}
+        <nav className={styles.navDesktop}>
+          <Link
+            to="/servicios"
+            onClick={() => handleNav("/servicios")}
+            aria-current={active === "/servicios" ? "page" : undefined}
           >
             Servicios
-          </a>
+          </Link>
 
-          <a
-            href="#contacto"
-            onClick={() => handleNav("#contacto")}
+          <Link
+            to="/contacto"
+            onClick={() => handleNav("/contacto")}
             className={styles.cta}
-            aria-current={active === "#contacto" ? "page" : undefined}
+            aria-current={active === "/contacto" ? "page" : undefined}
           >
             Contacto
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

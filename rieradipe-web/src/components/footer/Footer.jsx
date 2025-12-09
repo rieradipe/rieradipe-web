@@ -23,7 +23,7 @@ export default function Footer() {
             •
           </span>
           <a
-            href="https://www.linkedin.com/in/rieradipe"
+            href="https://www.linkedin.com/in/rieradipefullstack"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn de rieradipe"

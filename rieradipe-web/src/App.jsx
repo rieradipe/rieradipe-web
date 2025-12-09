@@ -1,23 +1,41 @@
 import "./global.css";
-import MainLayout from "./layouts/MainLayout.jsx";
-import Main from "./components/main/Main.jsx";
 
+import { Routes, Route } from "react-router-dom";
+
+import Main from "./components/main/Main.jsx";
 import Ciber from "./components/ciber/Ciber.jsx";
+import CodigoMundosComp from "./components/codigoMundos/CodigoMundosComp.jsx";
+import Servicios from "./components/servicios/Servicios.jsx";
+import OptimizacionWeb from "./components/optimizacion/OptimizacionWeb.jsx";
+import Contacto from "./components/contacto/Contacto.jsx";
+
+import Header from "./components/header/Header.jsx";
+import Footer from "./components/footer/Footer.jsx";
 
 import { useEffect } from "react";
-import CodigoMundoComp from "./components/codigoMundos/CodigoMundosComp.jsx";
-import OptimizacionWeb from "./components/optimizacion/OptimizacionWeb.jsx";
+
 function App() {
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", "minimal");
   }, []);
+
   return (
-    <MainLayout>
-      {/*<Main />*/}
-      {/*<Ciber />*/}
-      {/* <CodigoMundoComp /> */}
-      <OptimizacionWeb />
-    </MainLayout>
+    <div className="app">
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/ciber" element={<Ciber />} />
+          <Route path="/codigomundo" element={<CodigoMundosComp />} />
+          <Route path="/optimizacion" element={<OptimizacionWeb />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/servicios" element={<Servicios />} />
+          <Route path="*" element={<h1>Página no encontrada</h1>} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 }
+
 export default App;

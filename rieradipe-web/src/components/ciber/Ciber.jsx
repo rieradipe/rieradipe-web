@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "./Ciber.module.css";
 import worlds from "./index.json";
-
+import Seo from "../seo/Seo";
 // Resolver PDFs dentro de /src (Vite/CRA)
 function pdfHref(carpeta, archivo) {
   const base = carpeta
@@ -50,12 +50,19 @@ export default function Ciber() {
   };
 
   return (
-    <div className={`container section ${styles.pageCiber}`}>
+    <main className={`container section ${styles.pageCiber}`}>
       {/* HERO AlbaFactie centrado */}
+      <Seo
+        title="Ciberseguridad | Alba Factie"
+        description="Explora laboratorios prácticos de SQL Injection, Autenticación, File Upload y más."
+        keywords="ciberseguridad, hacking ético, SQL injection, Alba Factie"
+        image="/img/AlbaFactieCiber.png"
+      />
+
       <section className={styles.hero}>
         <div className={styles.heroMedia}>
           <img
-            src="/public/img/AlbaFactieCiber.png"
+            src="/img/AlbaFactieCiber.png"
             alt="AlbaFactie, guía de los mundos de ciberseguridad"
             className={styles.heroImg}
           />
@@ -119,6 +126,6 @@ export default function Ciber() {
           ))}
         </div>
       </section>
-    </div>
+    </main>
   );
 }

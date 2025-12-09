@@ -1,15 +1,16 @@
 import React from "react";
 import styles from "./Main.module.css";
+import { Link } from "react-router-dom";
+import Seo from "../seo/Seo";
 
 export default function Main({
   bannerSrc = "/img/AlbaFactieBanner.png",
   onWorldClick,
 }) {
   const mundos = [
-    { key: "ciber", label: "Ciberseguridad", href: "/ciber" },
-    { key: "codigo", label: "Código", href: "/codigo" },
-
-    { key: "optimizacion", label: "Optimización Web", href: "/optimizacion" },
+    { key: "ciber", label: "Ciberseguridad", to: "/ciber" },
+    { key: "codigo", label: "Código", to: "/codigomundo" },
+    { key: "optimizacion", label: "Optimización Web", to: "/optimizacion" },
   ];
 
   const handleWorld = (m) => {
@@ -17,9 +18,15 @@ export default function Main({
   };
 
   return (
-    <section className="section">
-      <div className="container">
-        {/* Imagen banner */}
+    <section className={styles.section}>
+      <Seo
+        title="Inicio | Rieradipe"
+        description="Explora el portfolio y proyectos reales de Rieradipe. Aprende de AlbaFactie sobre programación, ciberseguridad y optimización web."
+        image="/img/AlbaFactieBanner.png"
+      />
+
+      {/* Banner */}
+      <header className={styles.hero}>
         <div className={styles.imageWrap}>
           <img
             src={bannerSrc}
@@ -29,9 +36,7 @@ export default function Main({
           />
         </div>
 
-        {/* Texto sobre mí */}
-        {/* Texto sobre mí */}
-        <div className={styles.about}>
+        <article className={styles.about}>
           <h1 className={styles.title}>Sobre mí</h1>
 
           <p>
@@ -57,30 +62,28 @@ export default function Main({
           </p>
 
           <p>
-            Esta web refleja esa mezcla de técnica y valores:
-            <strong> desarrollo centrado en las personas</strong>, con la
+            Esta web refleja esa mezcla de técnica y valores:{" "}
+            <strong>desarrollo centrado en las personas</strong>, con la
             convicción de que la tecnología puede{" "}
             <strong>transformar, inspirar y cuidar</strong>.
           </p>
-        </div>
+        </article>
+      </header>
 
-        {/* Mundos */}
-        <nav className={styles.worlds} aria-label="Mundos de AlbaFactie">
-          {mundos.map((m) => (
-            <a
-              key={m.key}
-              href={m.href}
-              onClick={() => handleWorld(m)}
-              className={`btn btn--outline ${styles.worldBtn}`}
-              aria-label={`Ir a ${m.label}`}
-            >
-              <span className={styles.label}>{m.label}</span>
-            </a>
-          ))}
-        </nav>
-
-        <div style={{ height: "24px" }} />
-      </div>
+      {/* Mundos */}
+      <nav className={styles.worlds} aria-label="Mundos de AlbaFactie">
+        {mundos.map((m) => (
+          <Link
+            key={m.key}
+            to={m.to}
+            onClick={() => handleWorld(m)}
+            className={`btn btn--outline ${styles.worldBtn}`}
+            aria-label={`Ir a ${m.label}`}
+          >
+            <span className={styles.label}>{m.label}</span>
+          </Link>
+        ))}
+      </nav>
     </section>
   );
 }
