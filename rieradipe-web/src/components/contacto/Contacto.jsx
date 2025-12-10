@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Contacto.module.css";
 import Seo from "../seo/Seo";
+import { API_URL } from "../../services/api";
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ const Contacto = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("/api/contacts", {
+      const res = await fetch(`${API_URL}/api/contacts`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(formData),
