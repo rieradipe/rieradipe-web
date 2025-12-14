@@ -11,6 +11,7 @@ import Contacto from "./components/contacto/Contacto.jsx";
 
 import Header from "./components/header/Header.jsx";
 import Footer from "./components/footer/Footer.jsx";
+import AdminPanel from "./components/admin/AdminPanel";
 
 import { useEffect } from "react";
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/servicios" element={<Servicios />} />
           <Route path="*" element={<h1>Página no encontrada</h1>} />
+          <Route path="/panel-secreto-7f4d2a1b" element={<AdminPanel />} />
         </Routes>
       </main>
       <Footer />

@@ -31,9 +31,6 @@ export default function CodigoMundosComp() {
             alt="AlbaFactie enseñando programación"
             className={styles.heroImg}
           />
-          <figcaption className="sr-only">
-            AlbaFactie enseñando programación
-          </figcaption>
         </figure>
       </header>
       {/* TARJETAS DE LOS MUNDOS */}

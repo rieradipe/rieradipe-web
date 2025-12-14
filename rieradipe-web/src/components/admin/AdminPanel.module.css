@@ -1,0 +1,241 @@
+/* src/components/admin/AdminPanel.css */
+
+/* =========================
+   RESET Y TIPOGRAFÍA
+   ========================= */
+.adminPanel,
+.adminLogin {
+  font-family: var(--font-body);
+  color: var(--fg);
+  background: var(--bg);
+  min-height: 100vh;
+  padding: var(--space-4);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-title);
+  margin: var(--space-2) 0;
+}
+
+h1 {
+  font-size: clamp(24px, 5vw, 32px);
+}
+h2 {
+  font-size: clamp(20px, 4vw, 28px);
+}
+h3 {
+  font-size: clamp(18px, 3.5vw, 24px);
+}
+
+/* =========================
+      BOTONES
+      ========================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  border: var(--border-thin) solid transparent;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-small {
+  padding: 4px 8px;
+  font-size: 0.85rem;
+}
+
+.btn-danger {
+  background: #f44336;
+}
+
+.btn-danger:hover {
+  filter: brightness(1.1);
+}
+
+/* =========================
+      HEADER
+      ========================= */
+.adminHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+/* =========================
+      LOGIN
+      ========================= */
+.adminLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: var(--space-6);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-2);
+}
+
+.adminLogin input {
+  width: 100%;
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  border: var(--border-thin) solid var(--line);
+  border-radius: var(--radius-xs);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.adminLogin .error {
+  color: #f44336;
+  margin-bottom: var(--space-3);
+}
+
+/* =========================
+      PANEL ADMIN
+      ========================= */
+.adminContent {
+  display: flex;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.contactsList {
+  flex: 1 1 250px;
+  max-width: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  border: var(--border-thin) solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+}
+
+.contactsList input {
+  width: 100%;
+  padding: var(--space-2);
+  margin-bottom: var(--space-3);
+  border: var(--border-thin) solid var(--line);
+  border-radius: var(--radius-xs);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.contactsList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.contactsList li {
+  padding: var(--space-2);
+  cursor: pointer;
+  border-bottom: var(--border-thin) solid var(--line);
+  transition: background 0.2s;
+}
+
+.contactsList li:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* =========================
+      DETALLES DE CONTACTO
+      ========================= */
+.contactDetails {
+  flex: 2 1 600px;
+  background: rgba(255, 255, 255, 0.05);
+  border: var(--border-thin) solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.contactActions {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.threadsSection {
+  margin-top: var(--space-4);
+}
+
+.threadCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: var(--border-thin) solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.threadCard ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-2) 0;
+}
+
+.threadCard li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-1) 0;
+  border-bottom: var(--border-thin) solid rgba(255, 255, 255, 0.08);
+}
+
+.threadCard input {
+  width: 100%;
+  padding: var(--space-2);
+  margin-bottom: var(--space-2);
+  border: var(--border-thin) solid var(--line);
+  border-radius: var(--radius-xs);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* =========================
+      SCROLLBAR PERSONALIZADA
+      ========================= */
+.contactsList ul::-webkit-scrollbar,
+.contactDetails::-webkit-scrollbar {
+  width: 6px;
+}
+
+.contactsList ul::-webkit-scrollbar-thumb,
+.contactDetails::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+/* =========================
+      RESPONSIVE
+      ========================= */
+@media (max-width: 1024px) {
+  .adminContent {
+    flex-direction: column;
+  }
+  .contactsList,
+  .contactDetails {
+    max-width: 100%;
+    flex: 1 1 auto;
+  }
+}

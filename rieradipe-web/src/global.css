@@ -329,3 +329,63 @@ button.btn:focus,
 button.btn:active {
   color: var(--accent-contrast) !important;
 }
+.contactsGrid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .contactsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .contactsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.contactCard {
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  border: var(--border-thin) solid var(--border-color);
+  background: rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contactCard h3 {
+  margin-bottom: var(--space-2);
+}
+
+.lastNote {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-4);
+}
+
+.cardActions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.viewBtn {
+  background-color: var(--accent);
+}
+
+.viewBtn:hover {
+  filter: brightness(1.05);
+}
+
+.deleteBtn {
+  background-color: #ff4d4f;
+}
+
+.deleteBtn:hover {
+  filter: brightness(1.1);
+}
