@@ -15,6 +15,33 @@ export default function AdminPanel() {
   const [loadingMessages, setLoadingMessages] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
+  // ---- VALIDAR TOKEN AL CARGAR ----
+  useEffect(() => {
+    if (!token) return;
+
+    const validateToken = async () => {
+      try {
+        const res = await fetch(
+          `${API_BASE}/panel-secreto-7f4d2a1b/api/admin/validate`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+        if (!res.ok) {
+          setToken("");
+          localStorage.removeItem("adminToken");
+        } else {
+          fetchContacts(token); // token válido, cargar contactos
+        }
+      } catch (err) {
+        setToken("");
+        localStorage.removeItem("adminToken");
+      }
+    };
+
+    validateToken();
+  }, [token]);
+
   // ---- LOGIN ----
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -29,11 +56,13 @@ export default function AdminPanel() {
           body: JSON.stringify({ email, password }),
         }
       );
+
       if (!res.ok) throw new Error("Usuario o contraseña incorrectos");
 
       const data = await res.json();
       setToken(data.token);
       localStorage.setItem("adminToken", data.token);
+      fetchContacts(data.token); // cargar contactos al loguearse
     } catch (err) {
       setError(err.message);
     }
@@ -42,32 +71,32 @@ export default function AdminPanel() {
   const handleLogout = () => {
     setToken("");
     localStorage.removeItem("adminToken");
+    setContacts([]);
+    setSelectedContact(null);
+    setMessages([]);
   };
 
   // ---- FETCH CONTACTS ----
-  useEffect(() => {
-    if (!token) return;
-
-    const fetchContacts = async () => {
-      setLoadingContacts(true);
-      try {
-        const res = await fetch(
-          `${API_BASE}/panel-secreto-7f4d2a1b/api/admin/contacts`,
-          { headers: { Authorization: `Bearer ${token}` } }
-        );
-        if (!res.ok) throw new Error("Error al obtener contactos");
-        const data = await res.json();
-        data.sort((a, b) => a.name.localeCompare(b.name));
-        setContacts(data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoadingContacts(false);
-      }
-    };
-
-    fetchContacts();
-  }, [token]);
+  const fetchContacts = async (authToken) => {
+    setLoadingContacts(true);
+    try {
+      const res = await fetch(
+        `${API_BASE}/panel-secreto-7f4d2a1b/api/admin/contacts`,
+        {
+          headers: { Authorization: `Bearer ${authToken}` },
+        }
+      );
+      if (!res.ok) throw new Error("Error al obtener contactos");
+      const data = await res.json();
+      data.sort((a, b) => a.name.localeCompare(b.name));
+      setContacts(data);
+    } catch (err) {
+      console.error(err);
+      setContacts([]);
+    } finally {
+      setLoadingContacts(false);
+    }
+  };
 
   // ---- DELETE CONTACT ----
   const handleDeleteContact = async (id) => {
@@ -75,6 +104,7 @@ export default function AdminPanel() {
       !window.confirm("¿Eliminar contacto? Esta acción no se puede deshacer.")
     )
       return;
+
     try {
       const res = await fetch(
         `${API_BASE}/panel-secreto-7f4d2a1b/api/admin/contacts/${id}`,
@@ -95,7 +125,7 @@ export default function AdminPanel() {
     }
   };
 
-  // ---- FETCH MESSAGES AL ABRIR TARJETA ----
+  // ---- FETCH MESSAGES ----
   const handleOpenModal = async (contact) => {
     setSelectedContact(contact);
     setModalOpen(true);
@@ -116,7 +146,6 @@ export default function AdminPanel() {
     }
   };
 
-  // ---- FILTRO POR BUSCADOR ----
   const filteredContacts = contacts.filter((c) =>
     c.name.toLowerCase().includes(searchTerm.toLowerCase())
   );

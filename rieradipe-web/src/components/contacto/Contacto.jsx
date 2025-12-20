@@ -28,7 +28,7 @@ const Contacto = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${API_URL}/api/contacts`, {
+      const res = await fetch(`${API_URL}/api/contact`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(formData),
