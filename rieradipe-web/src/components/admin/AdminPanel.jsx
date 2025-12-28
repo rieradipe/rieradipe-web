@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-
-const API_BASE = "http://localhost:7070";
+import { API_URL } from "../../services/api";
 
 export default function AdminPanel() {
   const [email, setEmail] = useState("");
@@ -22,7 +21,7 @@ export default function AdminPanel() {
     const validateToken = async () => {
       try {
         const res = await fetch(
-          `${API_BASE}/panel-secreto-7f4d2a1b/api/admin/validate`,
+          `${API_URL}/panel-secreto-7f4d2a1b/api/admin/validate`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -49,7 +48,7 @@ export default function AdminPanel() {
 
     try {
       const res = await fetch(
-        `${API_BASE}/panel-secreto-7f4d2a1b/api/admin/login`,
+        `${API_URL}/panel-secreto-7f4d2a1b/api/admin/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -81,7 +80,7 @@ export default function AdminPanel() {
     setLoadingContacts(true);
     try {
       const res = await fetch(
-        `${API_BASE}/panel-secreto-7f4d2a1b/api/admin/contacts`,
+        `${API_URL}/panel-secreto-7f4d2a1b/api/admin/contacts`,
         {
           headers: { Authorization: `Bearer ${authToken}` },
         }
@@ -107,7 +106,7 @@ export default function AdminPanel() {
 
     try {
       const res = await fetch(
-        `${API_BASE}/panel-secreto-7f4d2a1b/api/admin/contacts/${id}`,
+        `${API_URL}/panel-secreto-7f4d2a1b/api/admin/contacts/${id}`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },
@@ -132,7 +131,7 @@ export default function AdminPanel() {
     setLoadingMessages(true);
     try {
       const res = await fetch(
-        `${API_BASE}/panel-secreto-7f4d2a1b/api/admin/messages/${contact.id}`,
+        `${API_URL}/panel-secreto-7f4d2a1b/api/admin/messages/${contact.id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (!res.ok) throw new Error("No se pudieron cargar los mensajes");

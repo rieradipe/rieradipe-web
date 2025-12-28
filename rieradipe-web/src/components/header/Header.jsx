@@ -1,17 +1,39 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 
 export default function Header() {
   const [active, setActive] = useState("/");
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleNav = (path) => {
     setActive(path);
   };
 
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
+  };
+
+  const isHome = location.pathname === "/";
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
+        {!isHome && (
+          <button
+            onClick={handleBack}
+            className={styles.backButton}
+            aria-label="Volver"
+          >
+            ← Volver
+          </button>
+        )}
+
         <Link to="/" className={styles.brand}>
           <img
             className={styles.logo}

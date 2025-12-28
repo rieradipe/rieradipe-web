@@ -115,3 +115,29 @@
     padding: 10px 16px;
   }
 }
+
+/* Botón Volver */
+.backButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--violet-900);
+  padding: 6px 8px;
+  margin-right: 4px;
+  white-space: nowrap;
+}
+
+.backButton:hover,
+.backButton:focus-visible {
+  text-decoration: underline;
+}
+
+/* Ajuste móvil */
+@media (max-width: 767px) {
+  .backButton {
+    font-size: 0.85rem;
+    padding: 4px 6px;
+  }
+}

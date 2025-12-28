@@ -1,0 +1,12 @@
+.backButton {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: inherit;
+  padding: 0.5rem 0;
+}
+
+.backButton:hover {
+  text-decoration: underline;
+}
