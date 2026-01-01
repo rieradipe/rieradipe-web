@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { API_URL } from "../../services/api";
+import { getAllContacts } from "../../services/api";
 
 export default function AdminPanel() {
   const [email, setEmail] = useState("");
@@ -42,11 +42,14 @@ export default function AdminPanel() {
   }, [token]);
 
   // ---- LOGIN ----
+  import { getAllContacts } from "../../services/api"; // asegúrate de importar la función correcta
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
+      // 1️⃣ Login en el backend
       const res = await fetch(
         `${API_URL}/panel-secreto-7f4d2a1b/api/admin/login`,
         {
@@ -59,10 +62,17 @@ export default function AdminPanel() {
       if (!res.ok) throw new Error("Usuario o contraseña incorrectos");
 
       const data = await res.json();
-      setToken(data.token);
-      localStorage.setItem("adminToken", data.token);
-      fetchContacts(data.token); // cargar contactos al loguearse
+      const token = data.token;
+
+      // Guardar token en estado y localStorage
+      setToken(token);
+      localStorage.setItem("adminToken", token);
+
+      // 2️⃣ Traer los contactos ahora que tenemos token válido
+      const contactsData = await getAllContacts(token);
+      setContacts(contactsData);
     } catch (err) {
+      console.error("Error login:", err);
       setError(err.message);
     }
   };
