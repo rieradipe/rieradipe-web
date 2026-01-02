@@ -42,7 +42,6 @@ export default function AdminPanel() {
   }, [token]);
 
   // ---- LOGIN ----
-  import { getAllContacts } from "../../services/api"; // asegúrate de importar la función correcta
 
   const handleLogin = async (e) => {
     e.preventDefault();
