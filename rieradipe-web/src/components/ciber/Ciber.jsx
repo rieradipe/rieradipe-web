@@ -17,6 +17,7 @@ export default function Ciber() {
 
   const current = tabs[activeTab];
 
+  // Mensajes de introducción según mundo
   const getAlbaMessage = (folder) => {
     switch (folder) {
       case "autenticacion":
@@ -90,11 +91,12 @@ export default function Ciber() {
         <h2 className={styles.worldTitle}>{current.mundo}</h2>
         <div className={styles.grid}>
           {current.labs.map((lab) => {
+            // Construimos la ruta del PDF según si tiene carpeta o es “reflexión”
             const pdfPath = lab.archivo.startsWith("/")
               ? lab.archivo
-              : `/ciber/${current.carpeta ? current.carpeta + "/" : ""}${
-                  lab.archivo
-                }`;
+              : current.carpeta
+              ? `/ciber/${current.carpeta}/${lab.archivo}` // labs normales
+              : `/ciber/reflexiones/${lab.archivo}`; // labs “extra”
 
             return (
               <article key={lab.id} className={`${styles.labCard} card`}>
