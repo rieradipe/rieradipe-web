@@ -1,26 +1,12 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Ciber.module.css";
-import worlds from "./index.json";
+import worlds from "/ciber/index.json"; // index.json en public/ciber
 import Seo from "../seo/Seo";
-// Resolver PDFs dentro de /src (Vite/CRA)
-function pdfHref(carpeta, archivo) {
-  const base = carpeta
-    ? `../../data/labs/ciber/${carpeta}/${archivo}`
-    : `../../data/labs/ciber/${archivo}`;
-  try {
-    return new URL(base, import.meta.url).href;
-  } catch {
-    return `${process.env.PUBLIC_URL || ""}/data/labs/ciber/${
-      carpeta ? carpeta + "/" : ""
-    }${archivo}`;
-  }
-}
 
 export default function Ciber() {
   const [activeTab, setActiveTab] = useState(0);
-  const tabs = useMemo(() => worlds || [], []);
+  const tabs = worlds || [];
 
-  // Forzamos tema elegante en esta vista
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", "minimal");
   }, []);
@@ -31,7 +17,6 @@ export default function Ciber() {
 
   const current = tabs[activeTab];
 
-  // Texto dinámico según mundo
   const getAlbaMessage = (folder) => {
     switch (folder) {
       case "autenticacion":
@@ -51,7 +36,6 @@ export default function Ciber() {
 
   return (
     <main className={`container section ${styles.pageCiber}`}>
-      {/* HERO AlbaFactie centrado */}
       <Seo
         title="Ciberseguridad | Alba Factie"
         description="Explora laboratorios prácticos de SQL Injection, Autenticación, File Upload y más."
@@ -67,7 +51,6 @@ export default function Ciber() {
             className={styles.heroImg}
           />
         </div>
-
         <div className={styles.heroText}>
           <h1>
             👋 ¡Hola, soy <strong>AlbaFactie</strong>!
@@ -85,7 +68,6 @@ export default function Ciber() {
         </div>
       </section>
 
-      {/* BOTONES de mundos — blancos + glow verde; activo verde sólido */}
       <nav className={styles.tabs}>
         {tabs.map((t, i) => (
           <button
@@ -102,28 +84,34 @@ export default function Ciber() {
         ))}
       </nav>
 
-      {/* Intro por mundo (centrada) */}
       <p className={styles.albaIntro}>{getAlbaMessage(current.carpeta)}</p>
 
-      {/* GRID de labs */}
       <section>
         <h2 className={styles.worldTitle}>{current.mundo}</h2>
         <div className={styles.grid}>
-          {current.labs.map((lab) => (
-            <article key={lab.id} className={`${styles.labCard} card`}>
-              <h3>{lab.titulo}</h3>
-              <p className={styles.tags}>Tags: {lab.tags.join(", ")}</p>
-              <a
-                className={styles.pdfBtn}
-                href={pdfHref(current.carpeta, lab.archivo)}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Descargar PDF: ${lab.titulo}`}
-              >
-                Descargar PDF
-              </a>
-            </article>
-          ))}
+          {current.labs.map((lab) => {
+            const pdfPath = lab.archivo.startsWith("/")
+              ? lab.archivo
+              : `/ciber/${current.carpeta ? current.carpeta + "/" : ""}${
+                  lab.archivo
+                }`;
+
+            return (
+              <article key={lab.id} className={`${styles.labCard} card`}>
+                <h3>{lab.titulo}</h3>
+                <p className={styles.tags}>Tags: {lab.tags.join(", ")}</p>
+                <a
+                  className={styles.pdfBtn}
+                  href={pdfPath}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Descargar PDF: ${lab.titulo}`}
+                >
+                  Descargar PDF
+                </a>
+              </article>
+            );
+          })}
         </div>
       </section>
     </main>
