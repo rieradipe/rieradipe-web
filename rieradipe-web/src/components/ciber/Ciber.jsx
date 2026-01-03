@@ -1,23 +1,41 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Ciber.module.css";
-import worlds from "/ciber/index.json"; // index.json en public/ciber
 import Seo from "../seo/Seo";
 
 export default function Ciber() {
+  const [tabs, setTabs] = useState([]);
   const [activeTab, setActiveTab] = useState(0);
-  const tabs = worlds || [];
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", "minimal");
+
+    fetch("/ciber/index.json")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("No se pudo cargar /ciber/index.json");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setTabs(data);
+      })
+      .catch((err) => {
+        console.error(err);
+        setError("Error cargando los laboratorios");
+      });
   }, []);
 
+  if (error) {
+    return <div className={styles.empty}>{error}</div>;
+  }
+
   if (!tabs.length) {
-    return <div className={styles.empty}>No hay laboratorios disponibles.</div>;
+    return <div className={styles.empty}>Cargando laboratorios…</div>;
   }
 
   const current = tabs[activeTab];
 
-  // Mensajes de introducción según mundo
   const getAlbaMessage = (folder) => {
     switch (folder) {
       case "autenticacion":
@@ -39,16 +57,16 @@ export default function Ciber() {
     <main className={`container section ${styles.pageCiber}`}>
       <Seo
         title="Ciberseguridad | Alba Factie"
-        description="Explora laboratorios prácticos de SQL Injection, Autenticación, File Upload y más."
-        keywords="ciberseguridad, hacking ético, SQL injection, Alba Factie"
+        description="Explora laboratorios prácticos de ciberseguridad"
         image="/img/AlbaFactieCiber.png"
       />
 
+      {/* HERO */}
       <section className={styles.hero}>
         <div className={styles.heroMedia}>
           <img
             src="/img/AlbaFactieCiber.png"
-            alt="AlbaFactie, guía de los mundos de ciberseguridad"
+            alt="AlbaFactie"
             className={styles.heroImg}
           />
         </div>
@@ -58,17 +76,15 @@ export default function Ciber() {
           </h1>
           <p>
             Bienvenido al universo de los{" "}
-            <strong>mundos de ciberseguridad</strong>. Cada laboratorio es una
-            misión real para entender cómo se vulneran y protegen las
-            aplicaciones web.
+            <strong>mundos de ciberseguridad</strong>.
           </p>
           <p>
-            Explora cada mundo y descubre técnicas de ataque y defensa
-            explicadas paso a paso. 🌍
+            Cada laboratorio es una misión real para aprender ataque y defensa.
           </p>
         </div>
       </section>
 
+      {/* TABS */}
       <nav className={styles.tabs}>
         {tabs.map((t, i) => (
           <button
@@ -78,7 +94,6 @@ export default function Ciber() {
             className={`${styles.tab} ${
               i === activeTab ? styles.tabActive : ""
             }`}
-            aria-pressed={i === activeTab}
           >
             {t.mundo}
           </button>
@@ -87,27 +102,25 @@ export default function Ciber() {
 
       <p className={styles.albaIntro}>{getAlbaMessage(current.carpeta)}</p>
 
+      {/* LABS */}
       <section>
         <h2 className={styles.worldTitle}>{current.mundo}</h2>
+
         <div className={styles.grid}>
           {current.labs.map((lab) => {
-            // Construimos la ruta del PDF según si tiene carpeta o es “reflexión”
-            const pdfPath = lab.archivo.startsWith("/")
-              ? lab.archivo
-              : current.carpeta
-              ? `/ciber/${current.carpeta}/${lab.archivo}` // labs normales
-              : `/ciber/reflexiones/${lab.archivo}`; // labs “extra”
+            const pdfPath = current.carpeta
+              ? `/ciber/${current.carpeta}/${lab.archivo}`
+              : `/ciber/reflexiones/${lab.archivo}`;
 
             return (
               <article key={lab.id} className={`${styles.labCard} card`}>
                 <h3>{lab.titulo}</h3>
                 <p className={styles.tags}>Tags: {lab.tags.join(", ")}</p>
                 <a
-                  className={styles.pdfBtn}
                   href={pdfPath}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`Descargar PDF: ${lab.titulo}`}
+                  className={styles.pdfBtn}
                 >
                   Descargar PDF
                 </a>
