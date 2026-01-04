@@ -81,6 +81,105 @@
   font-weight: 500;
   color: #7a49b8;
 }
+.formContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.buttonForm {
+  padding: 0.75rem 1.5rem;
+  background: #0066ff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.buttonForm:hover {
+  background: #004bb5;
+}
+
+.statusMessage {
+  margin-top: 1rem;
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #fff;
+  padding: 2rem;
+  max-width: 420px;
+  width: 90%;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modalImage {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.modalButton {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #0066ff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modalButton:hover {
+  background: #004bb5;
+}
+/*Modal responsive*/
+@media (max-width: 500px) {
+  .row {
+    flex-direction: column;
+  }
+}
 
 /* RESPONSIVE */
 

@@ -13,16 +13,11 @@ const Contacto = () => {
     source: "web",
   });
   const [status, setStatus] = useState("");
-  const [albaPosition, setAlbaPosition] = useState(0);
-  const [albaScale, setAlbaScale] = useState(1);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-
-    setAlbaPosition((prev) => (prev + 5) % 50);
-    setAlbaScale(1.1);
-    setTimeout(() => setAlbaScale(1), 300);
   };
 
   const handleSubmit = async (e) => {
@@ -31,7 +26,7 @@ const Contacto = () => {
       const res = await sendContact(formData);
 
       if (res.ok) {
-        setStatus("¡Gracias! Tu mensaje se ha enviado correctamente.");
+        // Reset del formulario
         setFormData({
           name: "",
           email: "",
@@ -40,6 +35,8 @@ const Contacto = () => {
           phone: "",
           source: "web",
         });
+        // Abrir modal de éxito
+        setModalOpen(true);
       } else {
         setStatus("Error al enviar el formulario. Intenta de nuevo.");
       }
@@ -48,6 +45,8 @@ const Contacto = () => {
       setStatus("Error de conexión. Intenta de nuevo pasados unos minutos.");
     }
   };
+
+  const closeModal = () => setModalOpen(false);
 
   return (
     <section className={styles.formContainer} aria-labelledby="contact-title">
@@ -96,7 +95,6 @@ const Contacto = () => {
             placeholder="Teléfono"
             value={formData.phone}
             onChange={handleChange}
-            required
           />
         </div>
 
@@ -117,6 +115,32 @@ const Contacto = () => {
         <p role="status" className={styles.statusMessage}>
           {status}
         </p>
+      )}
+
+      {modalOpen && (
+        <div className={styles.modalOverlay} onClick={closeModal}>
+          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.modalHeader}>
+              <img
+                src="/img/AlbaFactieQA.png"
+                alt="AlbaFactie"
+                className={styles.modalImage}
+              />
+              <h3>¡Gracias por contactarnos!</h3>
+            </div>
+            <p>
+              Hemos recibido tu mensaje correctamente. En breve nos pondremos en
+              contacto contigo.
+            </p>
+            <button
+              className={styles.modalButton}
+              onClick={closeModal}
+              autoFocus
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
       )}
     </section>
   );
