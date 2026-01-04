@@ -12,21 +12,21 @@ const Contacto = () => {
     phone: "",
     source: "web",
   });
+
   const [status, setStatus] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await sendContact(formData);
-
-      if (res.ok) {
-        // Reset del formulario
+      const res = await sendContact(formData); // fetch al backend
+      // Comprobamos que la respuesta indique éxito
+      if (res.success || res.status === 201) {
         setFormData({
           name: "",
           email: "",
@@ -35,8 +35,8 @@ const Contacto = () => {
           phone: "",
           source: "web",
         });
-        // Abrir modal de éxito
-        setModalOpen(true);
+        setStatus(""); // borramos cualquier mensaje previo
+        setModalOpen(true); // Abrimos modal
       } else {
         setStatus("Error al enviar el formulario. Intenta de nuevo.");
       }
@@ -117,6 +117,7 @@ const Contacto = () => {
         </p>
       )}
 
+      {/* Modal de éxito */}
       {modalOpen && (
         <div className={styles.modalOverlay} onClick={closeModal}>
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
