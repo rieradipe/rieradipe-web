@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { API_URL } from "../../services/api";
+import React, { useState } from "react";
+
+const API_URL = "https://rieradipe-api-kis2.onrender.com";
 
 export default function AdminPanel() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState(""); // solo estado, nada de localStorage
+  const [token, setToken] = useState(""); // token solo en memoria
   const [error, setError] = useState("");
   const [contacts, setContacts] = useState([]);
   const [loadingContacts, setLoadingContacts] = useState(false);
@@ -28,19 +29,20 @@ export default function AdminPanel() {
           body: JSON.stringify({ email, password }),
         }
       );
+      if (!res.ok) throw new Error("Usuario o contraseña incorrectos");
 
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Credenciales incorrectas");
+      setToken(data.token);
 
-      setToken(data.token); // guardamos JWT solo en estado
-      fetchContacts(data.token); // cargar contactos
-      setEmail("");
-      setPassword("");
+      // cargar contactos
+      fetchContacts(data.token);
     } catch (err) {
       setError(err.message);
+      console.error(err);
     }
   };
 
+  // ---- LOGOUT ----
   const handleLogout = () => {
     setToken("");
     setContacts([]);
@@ -54,9 +56,7 @@ export default function AdminPanel() {
     try {
       const res = await fetch(
         `${API_URL}/panel-secreto-7f4d2a1b/api/admin/contacts`,
-        {
-          headers: { Authorization: `Bearer ${authToken}` },
-        }
+        { headers: { Authorization: `Bearer ${authToken}` } }
       );
       if (!res.ok) throw new Error("Error al obtener contactos");
       const data = await res.json();
@@ -80,12 +80,10 @@ export default function AdminPanel() {
     try {
       const res = await fetch(
         `${API_URL}/panel-secreto-7f4d2a1b/api/admin/contacts/${id}`,
-        {
-          method: "DELETE",
-          headers: { Authorization: `Bearer ${token}` },
-        }
+        { method: "DELETE", headers: { Authorization: `Bearer ${token}` } }
       );
       if (!res.ok) throw new Error("No se pudo eliminar el contacto");
+
       setContacts(contacts.filter((c) => c.id !== id));
       if (selectedContact?.id === id) {
         setModalOpen(false);
@@ -102,12 +100,14 @@ export default function AdminPanel() {
     setSelectedContact(contact);
     setModalOpen(true);
     setLoadingMessages(true);
+
     try {
       const res = await fetch(
         `${API_URL}/panel-secreto-7f4d2a1b/api/admin/messages/${contact.id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       if (!res.ok) throw new Error("No se pudieron cargar los mensajes");
+
       const data = await res.json();
       setMessages(data);
     } catch (err) {
@@ -213,8 +213,9 @@ export default function AdminPanel() {
                     marginTop: "8px",
                   }}
                 >
-                  {c.lastMessage ? c.lastMessage : "Sin conversaciones aún"}
+                  {c.lastMessage || "Sin conversaciones aún"}
                 </p>
+
                 <div
                   style={{
                     display: "flex",
