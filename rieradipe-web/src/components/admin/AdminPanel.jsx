@@ -4,7 +4,7 @@ import { API_URL } from "../../services/api";
 export default function AdminPanel() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState(""); // solo en memoria
+  const [token, setToken] = useState(""); // solo estado, nada de localStorage
   const [error, setError] = useState("");
   const [contacts, setContacts] = useState([]);
   const [loadingContacts, setLoadingContacts] = useState(false);
@@ -13,31 +13,6 @@ export default function AdminPanel() {
   const [modalOpen, setModalOpen] = useState(false);
   const [loadingMessages, setLoadingMessages] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-
-  // ---- VALIDAR TOKEN AL CARGAR ----
-  useEffect(() => {
-    if (!token) return;
-
-    const validateToken = async () => {
-      try {
-        const res = await fetch(
-          `${API_URL}/panel-secreto-7f4d2a1b/api/admin/validate`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
-        if (!res.ok) {
-          setToken(""); // token inválido, limpiar estado
-        } else {
-          fetchContacts(token); // token válido, cargar contactos
-        }
-      } catch (err) {
-        setToken("");
-      }
-    };
-
-    validateToken();
-  }, [token]);
 
   // ---- LOGIN ----
   const handleLogin = async (e) => {
@@ -54,19 +29,20 @@ export default function AdminPanel() {
         }
       );
 
-      if (!res.ok) throw new Error("Usuario o contraseña incorrectos");
-
       const data = await res.json();
-      setToken(data.token); // guardar token solo en memoria
+      if (!res.ok) throw new Error(data.error || "Credenciales incorrectas");
+
+      setToken(data.token); // guardamos JWT solo en estado
       fetchContacts(data.token); // cargar contactos
+      setEmail("");
+      setPassword("");
     } catch (err) {
-      console.error("Error login:", err);
       setError(err.message);
     }
   };
 
   const handleLogout = () => {
-    setToken(""); // limpiar token en memoria
+    setToken("");
     setContacts([]);
     setSelectedContact(null);
     setMessages([]);
@@ -239,7 +215,6 @@ export default function AdminPanel() {
                 >
                   {c.lastMessage ? c.lastMessage : "Sin conversaciones aún"}
                 </p>
-
                 <div
                   style={{
                     display: "flex",
