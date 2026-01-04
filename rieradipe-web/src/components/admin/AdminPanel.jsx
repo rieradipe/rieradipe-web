@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { getAllContacts } from "../../services/api";
+import { API_URL } from "../../services/api";
 
 export default function AdminPanel() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState(localStorage.getItem("adminToken") || "");
+  const [token, setToken] = useState(""); // solo en memoria
   const [error, setError] = useState("");
   const [contacts, setContacts] = useState([]);
   const [loadingContacts, setLoadingContacts] = useState(false);
@@ -27,14 +27,12 @@ export default function AdminPanel() {
           }
         );
         if (!res.ok) {
-          setToken("");
-          localStorage.removeItem("adminToken");
+          setToken(""); // token inválido, limpiar estado
         } else {
           fetchContacts(token); // token válido, cargar contactos
         }
       } catch (err) {
         setToken("");
-        localStorage.removeItem("adminToken");
       }
     };
 
@@ -42,13 +40,11 @@ export default function AdminPanel() {
   }, [token]);
 
   // ---- LOGIN ----
-
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
-      // 1️⃣ Login en el backend
       const res = await fetch(
         `${API_URL}/panel-secreto-7f4d2a1b/api/admin/login`,
         {
@@ -61,15 +57,8 @@ export default function AdminPanel() {
       if (!res.ok) throw new Error("Usuario o contraseña incorrectos");
 
       const data = await res.json();
-      const token = data.token;
-
-      // Guardar token en estado y localStorage
-      setToken(token);
-      localStorage.setItem("adminToken", token);
-
-      // 2️⃣ Traer los contactos ahora que tenemos token válido
-      const contactsData = await getAllContacts(token);
-      setContacts(contactsData);
+      setToken(data.token); // guardar token solo en memoria
+      fetchContacts(data.token); // cargar contactos
     } catch (err) {
       console.error("Error login:", err);
       setError(err.message);
@@ -77,8 +66,7 @@ export default function AdminPanel() {
   };
 
   const handleLogout = () => {
-    setToken("");
-    localStorage.removeItem("adminToken");
+    setToken(""); // limpiar token en memoria
     setContacts([]);
     setSelectedContact(null);
     setMessages([]);
