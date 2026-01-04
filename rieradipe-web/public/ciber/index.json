@@ -113,7 +113,7 @@
   },
   {
     "mundo": "Cross-Site Scripting (XSS)",
-    "carpeta": "xss",
+    "carpeta": "Xss",
     "color": "from-green-400 to-green-600",
     "labs": [
       {
