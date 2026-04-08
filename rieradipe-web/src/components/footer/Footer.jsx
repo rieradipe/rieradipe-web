@@ -34,13 +34,6 @@ export default function Footer() {
           <span className={styles.dot} aria-hidden="true">
             •
           </span>
-          <a
-            href="mailto:rieradipe@gmail.com"
-            className={styles.link}
-            aria-label="Enviar correo a rieradipe@gmail.com"
-          >
-            rieradipe@gmail.com
-          </a>
         </nav>
       </div>
     </footer>

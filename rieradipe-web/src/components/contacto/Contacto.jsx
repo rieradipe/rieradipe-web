@@ -35,8 +35,8 @@ const Contacto = () => {
           phone: "",
           source: "web",
         });
-        setStatus(""); // borramos cualquier mensaje previo
-        setModalOpen(true); // Abrimos modal
+        setStatus("");
+        setModalOpen(true);
       } else {
         setStatus("Error al enviar el formulario. Intenta de nuevo.");
       }
@@ -127,10 +127,10 @@ const Contacto = () => {
                 alt="AlbaFactie"
                 className={styles.modalImage}
               />
-              <h3>¡Gracias por contactarnos!</h3>
+              <h3>¡Gracias por tu mensaje!</h3>
             </div>
             <p>
-              Hemos recibido tu mensaje correctamente. En breve nos pondremos en
+              He recibido tu mensaje correctamente. En breve me pondré en
               contacto contigo.
             </p>
             <button
