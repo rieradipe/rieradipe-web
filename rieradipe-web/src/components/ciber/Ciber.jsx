@@ -37,17 +37,25 @@ export default function Ciber() {
   const current = tabs[activeTab];
 
   const getAlbaMessage = (folder) => {
-    switch (folder) {
+    const f = (folder || "").toLowerCase().trim();
+
+    switch (f) {
       case "autenticacion":
         return "🔐 En este mundo aprenderás cómo se explotan los fallos de login, bloqueo de cuentas y autenticaciones inseguras.";
-      case "sqlInjection":
+
+      case "sqlinjection":
         return "💉 Las inyecciones SQL son muy comunes. Descubre cómo prevenirlas con consultas preparadas y validación.";
-      case "fileInclusion":
+
+      case "fileinclusion":
         return "📂 La inclusión insegura de archivos puede filtrar código o datos sensibles. Aprende a blindar rutas y loaders.";
-      case "fileUpload":
+
+      case "fileupload":
         return "⬆️ Validar bien las subidas es clave. Evita que ejecuten código y aísla la carpeta de uploads.";
+
       case "xss":
+      case "crosssitescripting":
         return "🐞 El XSS permite ejecutar scripts en el navegador de la víctima. Escapa, sanitiza y usa CSP.";
+
       default:
         return "🧠 Material extra: reflexiones, Docker y mejoras de laboratorio.";
     }
