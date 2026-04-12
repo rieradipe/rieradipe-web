@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import styles from "./Contacto.module.css";
 import Seo from "../seo/Seo";
 import { sendContact } from "../../services/api";
@@ -16,6 +17,15 @@ const Contacto = () => {
   const [status, setStatus] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
 
+  useEffect(() => {
+    if (location.state) {
+      setFormData((prev) => ({
+        ...prev,
+        subject: location.state.subject || prev.subject,
+        message: location.state.message || prev.message,
+      }));
+    }
+  }, [location.state]);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -130,7 +140,7 @@ const Contacto = () => {
               <h3>¡Gracias por tu mensaje!</h3>
             </div>
             <p>
-              He recibido tu mensaje correctamente. En breve me pondré en
+              Hemos recibido tu mensaje correctamente. En breve nos pondré en
               contacto contigo.
             </p>
             <button
