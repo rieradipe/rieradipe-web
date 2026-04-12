@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Seo from "../seo/Seo";
 import styles from "./OptimizacionWeb.module.css";
 
@@ -11,7 +12,6 @@ export default function OptimizacionWeb() {
         image="/img/AlbaFactieOptimizacion.png"
       />
 
-      {/* FILA 1: Hero */}
       <header className={styles.hero}>
         <div className={styles.text}>
           <h2 className={styles.title}>Cosmos de la Optimización</h2>
@@ -26,6 +26,7 @@ export default function OptimizacionWeb() {
             un enfoque integral entre frontend y backend.
           </p>
         </div>
+
         <div className={styles.imageWrap}>
           <img
             src="/img/AlbaFactie3.png"
@@ -35,17 +36,17 @@ export default function OptimizacionWeb() {
         </div>
       </header>
 
-      {/* FILA 2: Grid de Cards */}
       <section className={styles.grid} aria-label="Servicios de Optimización">
         <article className={styles.card}>
           <span className={styles.badge}>SEO Técnico</span>
           <h3 className={styles.cardTitle}>Visibilidad desde la base</h3>
           <ul className={styles.list}>
             <li>Auditorías SEO y optimización de la estructura semántica.</li>
-            <li>Mejora de Core Web Vitals y tiempos de carga</li>
+            <li>Mejora de Core Web Vitals y tiempos de carga.</li>
             <li>Gestión de indexación, metadatos y arquitectura web.</li>
           </ul>
         </article>
+
         <article className={styles.card}>
           <span className={styles.badge}>UX & Flujo</span>
           <h3 className={styles.cardTitle}>Experiencia que guía</h3>
@@ -55,6 +56,7 @@ export default function OptimizacionWeb() {
             <li>Optimizamos la conversión a través del diseño consciente.</li>
           </ul>
         </article>
+
         <article className={styles.card}>
           <span className={styles.badge}>Componentes</span>
           <h3 className={styles.cardTitle}>Diseño modular</h3>
@@ -64,6 +66,7 @@ export default function OptimizacionWeb() {
             <li>Integración ágil con el backend y sistemas CMS.</li>
           </ul>
         </article>
+
         <article className={styles.card}>
           <span className={styles.badge}>Rendimiento</span>
           <h3 className={styles.cardTitle}>Velocidad y estabilidad</h3>
@@ -75,15 +78,23 @@ export default function OptimizacionWeb() {
         </article>
       </section>
 
-      {/* FILA 3: CTA */}
       <section className={styles.ctaBox}>
         <p className={styles.ctaText}>
           Tu web puede ser tan rápida y precisa como una órbita estable.
           ¿Optimizamos juntos su trayectoria?
         </p>
-        <a href="mailto:rieradipe@gmail.com" className={styles.button}>
+
+        <Link
+          to="/contacto"
+          state={{
+            subject: "Optimización web",
+            message:
+              "Hola, quiero mejorar el rendimiento, la experiencia de usuario y la conversión de mi web.",
+          }}
+          className={styles.button}
+        >
           Empezar la optimización
-        </a>
+        </Link>
       </section>
     </section>
   );
