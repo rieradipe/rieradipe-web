@@ -362,24 +362,31 @@
   line-height: 1.75;
   color: #50606a;
 }
-
-.ctaButton {
+.ctaPrimary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1.2rem;
-  padding: 0.9rem 1.4rem;
+  gap: 6px;
+
+  padding: 0.85rem 1.5rem;
   border-radius: 999px;
-  background: #6f44a6;
-  color: #fff;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
   text-decoration: none;
-  font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  color: #1f1f1f;
+  background: #ffffff;
+  border: 2px solid #6ad8b7;
+
+  transition: all 0.2s ease;
 }
 
-.ctaButton:hover {
+.ctaPrimary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(111, 68, 166, 0.18);
+  background: #f6fffc;
+  box-shadow: 0 8px 20px rgba(106, 216, 183, 0.18);
 }
 
 .finalCta {
@@ -400,25 +407,6 @@
   color: #39444b;
 }
 
-.finalCtaButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 230px;
-  padding: 0.95rem 1.4rem;
-  border-radius: 999px;
-  background: #fff;
-  border: 2px solid #6ad8b7;
-  color: #1f1f1f;
-  text-decoration: none;
-  font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.finalCtaButton:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(106, 216, 183, 0.16);
-}
 /*Tablet dos columnas */
 @media (min-width: 600px) {
   .grid {

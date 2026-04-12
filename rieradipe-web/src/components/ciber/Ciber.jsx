@@ -102,7 +102,7 @@ export default function Ciber() {
               message:
                 "Hola, quiero revisar la seguridad de una aplicación web y me gustaría hablar contigo.",
             }}
-            className={styles.ctaButton}
+            className={styles.ctaPrimary}
           >
             Revisemos tu proyecto
           </Link>
@@ -170,7 +170,7 @@ export default function Ciber() {
             message:
               "Hola, quiero analizar la seguridad de una aplicación web y me gustaría hablar contigo.",
           }}
-          className={styles.finalCtaButton}
+          className={styles.ctaPrimary}
         >
           Hablar sobre seguridad
         </Link>
