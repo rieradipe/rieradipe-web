@@ -20,7 +20,7 @@ export default function CodigoMundosComp() {
             Desarrollamos webs reales: de la idea al código funcional
           </h1>
           <p className={styles.heroDesc}>
-            En este mundo, <strong>AlbaFactie</strong> te muestra cómo convierto
+            En este mundo, <strong>AlbaFactie</strong> te muestra cómo convertir
             ideas en proyectos web reales: desde interfaces claras y atractivas
             hasta lógica backend capaz de sostener aplicaciones funcionales.
           </p>
