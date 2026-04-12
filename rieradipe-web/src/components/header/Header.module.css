@@ -19,25 +19,17 @@
   width: 100%;
   margin: 0;
   padding: 10px 24px;
-  display: grid;
-  grid-template-columns: 160px 1fr auto;
-  align-items: center;
-  gap: 12px;
-}
-
-/* Zona izquierda */
-.leftArea {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 48px;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 /* Marca */
 .brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 12px;
 }
 .logo {
   height: 90px;
@@ -47,10 +39,10 @@
 
 /* Menú SIEMPRE visible */
 .navDesktop {
+  margin-left: auto;
   display: flex;
   gap: 18px;
   align-items: center;
-  justify-content: flex-end;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -67,15 +59,13 @@
   border-radius: 999px;
   padding: 8px 14px;
   white-space: nowrap;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease,
-    transform 0.2s ease;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 .navDesktop a:hover,
 .navDesktop a:focus-visible {
   border-color: var(--violet);
   background: var(--violet);
   color: #fff;
-  transform: translateY(-1px);
 }
 .navDesktop a[aria-current="page"] {
   border-color: var(--violet);
@@ -88,63 +78,16 @@
   border: 1px solid var(--violet);
 }
 
-/* Botón Volver */
-.backButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem 0.9rem;
-  border: none;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.04);
-  color: var(--violet-900);
-  font-size: 0.92rem;
-  font-weight: 500;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: all 0.25s ease;
-}
-
-.backButton:hover,
-.backButton:focus-visible {
-  background: rgba(0, 0, 0, 0.08);
-  color: #1f1f1f;
-  transform: translateY(-1px);
-  text-decoration: none;
-}
-
-.backButton:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.backArrow {
-  font-size: 1rem;
-  line-height: 1;
-}
-
 /* Mobile tweaks */
 @media (max-width: 767px) {
   .inner {
-    grid-template-columns: auto 1fr auto;
     padding: 10px 12px;
-    gap: 8px;
   }
-
   .logo {
     height: 85px;
   }
-
   .navDesktop {
     gap: 12px;
-  }
-
-  .backButton {
-    padding: 0.45rem 0.75rem;
-    font-size: 0.85rem;
-  }
-
-  .backArrow {
-    font-size: 0.95rem;
   }
 }
 
@@ -153,7 +96,6 @@
     width: 100%;
     margin: 0;
     padding: 14px 24px;
-    grid-template-columns: 180px 1fr auto;
   }
 
   .logo {
@@ -161,12 +103,57 @@
   }
 
   .navDesktop {
+    display: flex;
     gap: 22px;
+    align-items: center;
+    margin-left: auto;
     overflow: visible;
   }
 
   .navDesktop a {
     font-size: 15px;
     padding: 10px 16px;
+  }
+}
+
+/* Botón Volver */
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+
+  background: rgba(94, 58, 135, 0.08); /* violeta suave */
+  border: 1px solid rgba(94, 58, 135, 0.25);
+
+  color: var(--violet);
+
+  font-size: 0.92rem;
+  font-weight: 500;
+
+  cursor: pointer;
+  white-space: nowrap;
+
+  transition: all 0.25s ease;
+}
+.backButton:hover,
+.backButton:focus-visible {
+  background: var(--violet);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.backButton:hover,
+.backButton:focus-visible {
+  text-decoration: underline;
+}
+
+/* Ajuste móvil */
+@media (max-width: 767px) {
+  .backButton {
+    font-size: 0.85rem;
+    padding: 4px 6px;
   }
 }
