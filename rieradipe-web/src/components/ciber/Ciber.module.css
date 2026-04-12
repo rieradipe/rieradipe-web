@@ -380,13 +380,20 @@
   background: #ffffff;
   border: 2px solid #6ad8b7;
 
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .ctaPrimary:hover {
-  transform: translateY(-1px);
-  background: #f6fffc;
-  box-shadow: 0 8px 20px rgba(106, 216, 183, 0.18);
+  transform: translateY(-2px);
+  background: #e9fbf5;
+  border-color: #52c9a6;
+
+  box-shadow: 0 10px 25px rgba(106, 216, 183, 0.25);
+}
+
+.ctaPrimary:active {
+  transform: translateY(0px) scale(0.97);
+  box-shadow: 0 4px 10px rgba(106, 216, 183, 0.2);
 }
 
 .finalCta {
