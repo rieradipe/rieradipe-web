@@ -57,7 +57,7 @@ export default function Main({
           </p>
 
           <p className={styles.invite}>
-            Explora un mundo y descubre cómo puedo ayudarte.
+            Elige un mundo y descubre cómo puedo ayudarte.
           </p>
         </article>
       </header>
