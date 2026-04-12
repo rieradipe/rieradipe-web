@@ -21,11 +21,10 @@ export default function Main({
     <section className={styles.section}>
       <Seo
         title="Inicio | Rieradipe"
-        description="Explora el portfolio y proyectos reales de Rieradipe. Aprende de AlbaFactie sobre programación, ciberseguridad y optimización web."
+        description="Desarrollo web, optimización y soluciones digitales pensadas para personas. Explora proyectos reales con AlbaFactie."
         image="/img/AlbaFactieBanner.png"
       />
 
-      {/* Banner */}
       <header className={styles.hero}>
         <div className={styles.imageWrap}>
           <img
@@ -37,40 +36,32 @@ export default function Main({
         </div>
 
         <article className={styles.about}>
-          <h1 className={styles.title}>Sobre mí</h1>
+          <h1 className={styles.title}>
+            Desarrollo web claro, funcional y pensado para personas
+          </h1>
 
           <p>
-            Soy <strong>Alba</strong>, desarrolladora web con pasión por la
-            tecnología que mejora la vida de las personas. En esta web me
-            acompaña <strong>AlbaFactie</strong>, mi alter ego digital y guía
-            curiosa, que te presentará los distintos mundos de mi universo
-            profesional.
+            Soy <strong>Alba</strong>, desarrolladora web, y en esta web me
+            acompaña <strong>AlbaFactie</strong>, mi guía digital.
           </p>
 
           <p>
-            Creo en un <strong>código con propósito</strong>: accesible,
-            inclusivo y con impacto real. Para mí, programar no consiste solo en
-            escribir líneas de código, sino en crear soluciones que comuniquen,
-            conecten y abran caminos a todas las personas.
+            Aquí te muestro cómo trabajo para transformar ideas en proyectos
+            reales: webs más claras, experiencias mejor pensadas y soluciones
+            digitales con intención.
           </p>
 
           <p>
-            Mi recorrido incluye certificados de profesionalidad en desarrollo
-            web, un bootcamp fullstack y formación en ciberseguridad. Cada paso
-            ha reforzado mi compromiso con un desarrollo ético, colaborativo y
-            en constante evolución.
+            Si buscas una web que comunique mejor, una mejora técnica o una base
+            sólida para crecer online, estás en el lugar adecuado.
           </p>
 
-          <p>
-            Esta web refleja esa mezcla de técnica y valores:{" "}
-            <strong>desarrollo centrado en las personas</strong>, con la
-            convicción de que la tecnología puede{" "}
-            <strong>transformar, inspirar y cuidar</strong>.
+          <p className={styles.invite}>
+            Explora un mundo y descubre cómo puedo ayudarte.
           </p>
         </article>
       </header>
 
-      {/* Mundos */}
       <nav className={styles.worlds} aria-label="Mundos de AlbaFactie">
         {mundos.map((m) => (
           <Link
