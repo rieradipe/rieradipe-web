@@ -70,12 +70,6 @@ export default function Ciber() {
         image="/img/AlbaFactieCiber.png"
       />
 
-      <div className={styles.topNav}>
-        <Link to="/" className={styles.backBtn}>
-          ← Volver al inicio
-        </Link>
-      </div>
-
       <section className={styles.hero}>
         <div className={styles.heroMedia}>
           <img
