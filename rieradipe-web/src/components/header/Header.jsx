@@ -24,15 +24,19 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        {!isHome && (
-          <button
-            onClick={handleBack}
-            className={styles.backButton}
-            aria-label="Volver"
-          >
-            ← Volver
-          </button>
-        )}
+        <div className={styles.leftArea}>
+          {!isHome && (
+            <button
+              onClick={handleBack}
+              className={styles.backButton}
+              aria-label="Volver"
+              type="button"
+            >
+              <span className={styles.backArrow}>←</span>
+              <span>Volver</span>
+            </button>
+          )}
+        </div>
 
         <Link to="/" className={styles.brand}>
           <img
