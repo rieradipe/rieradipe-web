@@ -20,9 +20,10 @@ export default function CodigoMundosComp() {
             Desarrollamos webs reales: de la idea al código funcional
           </h1>
           <p className={styles.heroDesc}>
-            En este mundo, <strong>AlbaFactie</strong> te muestra cómo convertir
-            ideas en proyectos web reales: desde interfaces claras y atractivas
-            hasta lógica backend capaz de sostener aplicaciones funcionales.
+            En este mundo, <strong>AlbaFactie</strong> te muestra cómo
+            convertimos ideas en proyectos web reales: desde interfaces claras y
+            atractivas hasta lógica backend capaz de sostener aplicaciones
+            funcionales.
           </p>
           <p className={styles.heroDesc}>
             Aquí encontrarás ejemplos de desarrollo con intención: código que no
