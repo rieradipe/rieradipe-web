@@ -144,10 +144,8 @@
   color: #fff;
   transform: translateY(-1px);
 }
-
-.backButton:hover,
-.backButton:focus-visible {
-  text-decoration: underline;
+.backButton:active {
+  transform: translateY(0) scale(0.97);
 }
 
 /* Ajuste móvil */
