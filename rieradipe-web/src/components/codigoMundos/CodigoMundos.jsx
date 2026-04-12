@@ -68,7 +68,7 @@ export default function CodigoMundos() {
                   rel="noopener noreferrer"
                   className={styles.button}
                 >
-                  Ver en GitHub
+                  Ver proyecto en GitHub
                 </a>
               </article>
             </div>

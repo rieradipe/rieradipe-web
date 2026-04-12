@@ -231,6 +231,49 @@
   opacity: 0.45;
   cursor: default;
 }
+.heroLead {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #2b2b2b;
+}
+
+.ctaBox {
+  margin: 3rem auto 0;
+  max-width: 1100px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border: 2px solid #b46cff;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 10px 30px rgba(180, 108, 255, 0.12);
+}
+
+.ctaText {
+  margin: 0 0 1.25rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #2b2b2b;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 240px;
+  padding: 0.95rem 1.4rem;
+  border: 2px solid #b46cff;
+  border-radius: 999px;
+  background: #fff;
+  color: #1f1f1f;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(180, 108, 255, 0.15);
+}
 
 /* ================== MEDIA QUERIES RESPONSIVE ================== */
 
