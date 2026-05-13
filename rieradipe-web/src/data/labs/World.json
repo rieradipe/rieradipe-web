@@ -1,103 +1,38 @@
 [
   {
-    "id": "mariefactie",
-    "type": "Frontend",
-    "title": "MarieFactie",
-    "repoUrl": "https://github.com/edmimi/Marie_Factie",
-    "status": "wip",
-    "tags": ["UI", "Branding", "Componentes"],
-    "tech": ["React 18", "Vite", "module.css", "Variables globales"],
-    "card": {
-      "pitch": "UI limpia y branding AlbaFactie con componentes reutilizables.",
-      "learning": "Arquitectura por componentes y estilos locales (module.css)."
-    },
-    "modal": {
-      "description": "App interactiva que simula a una científica excéntrica generando datos aleatorios con gestión de favoritos e interacción juguetona.",
-      "highlights": [
-        "Gestión de favoritos (hasta 5) y estado de interacción",
-        "Micro-comportamientos (estrés/respuestas juguetonas)",
-        "Componentes con estilos aislados mediante CSS Modules"
-      ],
-      "features": ["Generación de datos", "Favoritos", "Interacciones"]
-    }
-  },
-  {
-    "id": "sakuratarot",
-    "type": "Frontend",
-    "title": "Sakuratorat",
-    "repoUrl": "https://github.com/Carocitta/SakuraTarot",
+    "id": "ga-by-rieradipe",
+    "type": "Fullstack",
+    "title": "GA by RieraDiPe",
+    "repoUrl": "https://github.com/rieradipe/academia-baile-app",
+    "demoUrl": "https://ga-by-rieradipe.vercel.app",
     "status": "prod",
-    "tags": ["UX", "Interactividad", "Visual"],
-    "tech": ["React", "Vite", "JavaScript", "Axios"],
+    "tags": ["Gestión", "Academias", "CRUD"],
+    "tech": ["React", "Node.js", "SQLite", "CSS Modules"],
     "card": {
-      "pitch": "Generador visual (pasado/presente/futuro) estilo tarot.",
-      "learning": "Manejo de estado y eventos; flujo UX guiado en 3 pasos."
+      "pitch": "Aplicación de gestión moderna para academias y espacios educativos.",
+      "learning": "CRUD real, organización académica y experiencia de usuario."
     },
     "modal": {
-      "description": "El usuario elige cartas de pasado, presente y futuro en una experiencia dinámica y accesible.",
+      "description": "Aplicación orientada a academias y centros educativos para gestionar alumnas, horarios, pagos y organización interna.",
       "highlights": [
-        "UI en React con estados controlados",
-        "Datos/mock con json-server para desarrollo",
-        "Arquitectura simple y rápida con Vite"
+        "Gestión de alumnas y horarios",
+        "CRUD completo conectado a backend",
+        "Arquitectura modular y experiencia de usuario clara"
       ],
-      "features": ["Selección de cartas", "Estado guiado", "Mock API local"]
-    }
-  },
-  {
-    "id": "sabiduria-infinita",
-    "type": "Backend",
-    "title": "Sabiduría Infinita",
-    "repoUrl": "https://github.com/PaolaAMoralesP/Sabiduria-infinita",
-    "status": "prod",
-    "tags": ["API", "Libros", "CRUD"],
-    "tech": ["Java", "Maven", "PostgreSQL", "Dotenv"],
-    "card": {
-      "pitch": "API Java para gestionar un catálogo de libros (CRUD completo).",
-      "learning": "Separación MVC: controller, DAO, view; conexión JDBC."
-    },
-    "modal": {
-      "description": "Aplicación Java para crear, ver, buscar, actualizar y eliminar libros con PostgreSQL.",
-      "highlights": [
-        "Estructura MVC clara (controller/model/DAO/view)",
-        "Gestión de configuración con dotenv",
-        "Tests básicos con Maven"
-      ],
-      "features": ["Create/Read/Update/Delete", "Búsqueda", "Menú interactivo"]
-    }
-  },
-  {
-    "id": "techsafespace-backend",
-    "type": "Backend",
-    "title": "TechSafeSpace (Backend)",
-    "repoUrl": "https://github.com/codekraftians/backend",
-    "status": "dev",
-    "tags": ["Spring Boot", "Usuarios", "Validaciones"],
-    "tech": [
-      "Java 21",
-      "Spring Boot 3",
-      "JPA/Hibernate",
-      "PostgreSQL",
-      "Maven"
-    ],
-    "card": {
-      "pitch": "API Spring Boot con creación de usuarios y validaciones.",
-      "learning": "Capas controller/service/repository y validaciones con Bean Validation."
-    },
-    "modal": {
-      "description": "Backend para comunidad tech de mujeres y disidencias, con endpoints REST y persistencia en PostgreSQL.",
-      "highlights": [
-        "Endpoint POST /api/v1/users (201 Created)",
-        "Validaciones: @Email, @NotBlank, @Pattern",
-        "Arquitectura en capas y pruebas con Postman/pgAdmin"
-      ],
-      "features": ["Registro de usuario", "Persistencia", "Validación servidor"]
+      "features": [
+        "Gestión académica",
+        "Horarios",
+        "Pagos",
+        "Organización interna"
+      ]
     }
   },
   {
     "id": "pickmebylolas",
     "type": "Fullstack",
-    "title": "PickMe By Lolas",
+    "title": "PickMeByLolas",
     "repoUrl": "https://github.com/rieradipe/picmebylolas",
+    "demoUrl": "https://picmebylolas-front.vercel.app",
     "status": "dev",
     "tags": ["Mapa", "Seguridad", "Pedidos"],
     "tech": ["Spring Boot 3", "JWT", "AES-GCM", "PostgreSQL", "Swagger"],
@@ -109,48 +44,83 @@
       "description": "Plataforma para localizar zonas seguras, pedir menús y solicitar ayuda; foco en seguridad y buenas prácticas.",
       "highlights": [
         "Arquitectura MVC sobre Spring Boot",
-        "JWT para auth y AES-GCM para datos sensibles (IBAN)",
-        "Flyway para versionado, Swagger UI, Testcontainers"
+        "JWT para auth y AES-GCM para datos sensibles",
+        "Flyway para versionado y Swagger UI"
       ],
       "features": [
         "Auth/register/login",
-        "Categorías/Productos/Órdenes",
-        "Landing zones (mapa)"
+        "Categorías y productos",
+        "Mapa interactivo",
+        "Pedidos y zonas seguras"
       ]
+    }
+  },
+  {
+    "id": "trucos-digitales",
+    "type": "Frontend",
+    "title": "Trucos Digitales",
+    "repoUrl": "https://github.com/rieradipe",
+    "demoUrl": "https://albafactie-trucos-digitales.vercel.app",
+    "status": "prod",
+    "tags": ["Educación", "Ciberseguridad", "Infantil"],
+    "tech": ["React", "Vite", "CSS Modules"],
+    "card": {
+      "pitch": "Mini retos interactivos para enseñar seguridad digital infantil.",
+      "learning": "UX educativa, accesibilidad y gamificación."
+    },
+    "modal": {
+      "description": "Proyecto educativo interactivo creado para enseñar seguridad digital infantil de forma cercana, visual y divertida junto a AlbaFactie.",
+      "highlights": [
+        "Mini retos interactivos",
+        "Experiencia mobile friendly",
+        "Diseño educativo y accesible"
+      ],
+      "features": [
+        "Retos interactivos",
+        "Gamificación",
+        "Seguridad digital",
+        "Experiencia infantil"
+      ]
+    }
+  },
+  {
+    "id": "mariefactie",
+    "type": "Frontend",
+    "title": "MarieFactie",
+    "repoUrl": "https://github.com/edmimi/Marie_Factie",
+    "status": "wip",
+    "tags": ["UI", "Branding", "Componentes"],
+    "tech": ["React 18", "Vite", "module.css", "Variables globales"],
+    "card": {
+      "pitch": "UI limpia y branding AlbaFactie con componentes reutilizables.",
+      "learning": "Arquitectura por componentes y estilos locales."
+    },
+    "modal": {
+      "description": "App interactiva que simula a una científica excéntrica generando datos aleatorios con gestión de favoritos e interacción juguetona.",
+      "highlights": [
+        "Gestión de favoritos",
+        "Microinteracciones",
+        "CSS Modules"
+      ],
+      "features": ["Generación de datos", "Favoritos", "Interacciones"]
     }
   },
   {
     "id": "urdimbre-frontend",
     "type": "Fullstack",
-    "title": "Urdimbre (Frontend)",
+    "title": "Urdimbre",
     "repoUrl": "https://github.com/miskybox/Urdimbre_Frontend",
     "status": "dev",
     "tags": ["Roles", "Rutas protegidas", "Context"],
-    "tech": [
-      "React 18",
-      "Vite",
-      "React Router v6",
-      "Context API",
-      "Axios",
-      "CSS Modules"
-    ],
+    "tech": ["React 18", "Vite", "React Router", "Context API", "Axios"],
     "card": {
-      "pitch": "Interfaz con login, dashboard y panel admin (rutas protegidas).",
-      "learning": "Estado global con Context y diseño modular con CSS Modules."
+      "pitch": "Frontend con login, dashboard y panel admin mediante rutas protegidas.",
+      "learning": "Estado global y arquitectura modular."
     },
     "modal": {
-      "description": "Frontend oficial integrado con la API de Urdimbre: registro/login, eventos, perfil y administración por roles.",
-      "highlights": [
-        "Context API para estado global",
-        "Rutas protegidas con React Router",
-        "Axios + servicios; tests con RTL/Jest"
-      ],
-      "features": [
-        "Auth y perfil",
-        "Eventos",
-        "Panel admin",
-        "JSDoc en componentes"
-      ]
+      "description": "Frontend conectado a API para eventos, autenticación y administración por roles.",
+      "highlights": ["Context API", "Rutas protegidas", "Panel administrativo"],
+      "features": ["Auth", "Eventos", "Panel admin"]
     }
   }
 ]

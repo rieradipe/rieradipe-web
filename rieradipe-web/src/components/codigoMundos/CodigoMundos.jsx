@@ -62,14 +62,29 @@ export default function CodigoMundos() {
                   <h4 className={styles.cardTitle}>{p.title}</h4>
                   <p className={styles.cardDesc}>{p.card?.pitch ?? ""}</p>
                 </div>
-                <a
-                  href={p.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.button}
-                >
-                  Ver proyecto en GitHub
-                </a>
+                <div className={styles.cardActions}>
+                  {p.demoUrl && (
+                    <a
+                      href={p.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.button}
+                    >
+                      Ver proyecto
+                    </a>
+                  )}
+
+                  {p.repoUrl && (
+                    <a
+                      href={p.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.buttonSecondary}
+                    >
+                      GitHub
+                    </a>
+                  )}
+                </div>
               </article>
             </div>
           ))}
